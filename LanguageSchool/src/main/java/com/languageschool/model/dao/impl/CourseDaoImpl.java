@@ -47,6 +47,9 @@ public class CourseDaoImpl implements CourseDao{
 			throw new DaoException("database error", e);
 		}
 	}
+	
+	
+	//git check
 
 	@Override
 	public boolean update(Course course) throws DaoException {
