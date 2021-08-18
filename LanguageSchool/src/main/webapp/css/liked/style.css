@@ -1,0 +1,46 @@
+.wrapper {
+	min-height: calc(100vh - 55px);
+}
+table {
+	width: 90%;
+	margin: 50px auto 0;
+}
+table img {
+	height: 160px;
+}
+thead{
+	color: #fff;
+}
+
+.order {
+	width: 90%;
+	margin: 10px auto 0;
+}
+.final_price {
+	margin: 15px 50px 15px 0;
+	font-weight:bold;
+}
+.delivery_and_payment form>div {
+	margin: 5px 0 5px;
+}
+.delivery_and_payment input[type="submit"] {
+	font-size: 14px;
+	outline: none;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	font-weight: bold;
+	padding: 10px;
+	color: #fff;
+	cursor: pointer;
+	background: #a4a9ab;
+}
+
+.delivery_and_payment input[type="submit"]:hover {
+	background: #198d98;
+}
+#DELIVERY_method_info {
+	display: none;
+}
+#DELIVERY_method_info input[type="text"] {
+	margin-left: 5px;
+}
