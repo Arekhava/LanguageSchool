@@ -26,7 +26,7 @@ public final class ColumnName {
 	public static final String LANGUAGE_ID = "language_id";
 	public static final String COURSE_NAME = "name";
 	public static final String COURSE_PRICE = "price";
-	public static final String TEACHER_NAME = "teacher_name";
+	public static final String TEACHER_NAME = "teacher_name";   
 	
 	public static final String SUBSCRIPTIONS_ID = "id";
 	public static final String SUBSCRIPTIONS_USER_ID = "user_id";

@@ -39,7 +39,7 @@
 								</c:forEach>
 			</select>
 			<label>${language_name}:</label>
-			<input type="text" name="languageName" required placeholder="${language_name}" maxlength="45"/>
+			<input type="text" name="name" required placeholder="${course_name}" maxlength="45"/>
 		</div>
 		<div>
 			<label>${price}:</label>

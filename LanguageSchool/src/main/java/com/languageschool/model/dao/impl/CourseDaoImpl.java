@@ -25,7 +25,7 @@ import com.languageschool.model.pool.ConnectionPoolException;
  * @see CourseDao
  */
 public class CourseDaoImpl implements CourseDao{
-	private static final String SQL_INSERT_COURSE = "INSERT INTO COURSES (ID, NAME, PRICE, TEACHER_NAME,LANGUAGE_ID,  NEXT_START ) VALUES (?, ?, ?,?,?)";
+	private static final String SQL_INSERT_COURSE = "INSERT INTO COURSES (ID, NAME, PRICE, TEACHER_NAME, LANGUAGE_ID,  NEXT_START ) VALUES (?,?,?,?,?)";
 	private static final String SQL_UPDATE_COURSE = "UPDATE COURSES SET NAME=?, PRICE=?, TEACHER_NAME=?, NEXT_START=? WHERE ID=?";
 	private static final String SQL_SELECT_COURSE_BY_LANGUAGE = "SELECT ID, NAME, PRICE, TEACHER_NAME, NEXT_START FROM COURSES WHERE LANGUAGE_ID=?";
 	private static final String SQL_SELECT_COURSE_BY_NAME = "SELECT ID, NAME, PRICE, LANGUAGE_ID, TEACHER_NAME, NEXT_START WHERE NAME LIKE ?";
@@ -47,9 +47,7 @@ public class CourseDaoImpl implements CourseDao{
 			throw new DaoException("database error", e);
 		}
 	}
-	
-	
-	//git check
+
 
 	@Override
 	public boolean update(Course course) throws DaoException {
