@@ -29,7 +29,7 @@
     
     <servlet>
         <servlet-name>upload</servlet-name>
-        <servlet-class>com.languageschool.controller.UploadingServlet</servlet-class>
+        <servlet-class>com.languageschool.controller.FileUploadingServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>upload</servlet-name>

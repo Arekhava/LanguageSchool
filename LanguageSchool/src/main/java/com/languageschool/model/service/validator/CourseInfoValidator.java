@@ -19,7 +19,7 @@ public final class CourseInfoValidator {
 	private static final String PRICE_PATTERN = "^[1-9]\\d{0,8}(\\.\\d{2})?$";
 	private static final String IMAGE_NAME_PATTERN = "^.{1,40}\\.jpg$";
 	private static final String NAME_PATTERN = "^.{1,45}$";
-	private static final String QUANTITY_PATTERN = "^\\d{1,2}$";
+	
 
 	private CourseInfoValidator() {
 	}
@@ -79,6 +79,16 @@ public final class CourseInfoValidator {
 	public static boolean isValidName(String name) {
 		return (name != null) ? name.matches(NAME_PATTERN) : false;
 	}
+	/**
+	 * Checks if image name is valid
+	 * 
+	 * @param imageName {@link String}
+	 * @return boolean true if image name is valid, else false
+	 */
+	public static boolean isValidImageName(String imageName) {
+		return (imageName != null) ? imageName.matches(IMAGE_NAME_PATTERN) : false;
+	}
+
 
 	
 }

@@ -41,11 +41,9 @@
     <c:if test="${sessionScope.role == 'ADMIN'}">
     <body onload="selectMenu(0)">
     </c:if>
-    
 	<div class="wrapper">
 	<%@ include file="/jsp/fragment/header.jsp" %>
 	<%@ include file="/jsp/fragment/error_info.jsp" %>	
-		
 	<div class="contant clearfix">
 		<div class="left">
 		    <c:if test="${sessionScope.login == null}">
@@ -73,11 +71,10 @@
                 </div>
             </div>
 			</c:if>
-			
 		</div>
 		<div class="center">
 			<c:if test="${sessionScope.languages != null}">
-			<div class="languagues">
+			<div class="languages">
 				<c:forEach var="language" items="${sessionScope.languages}">
 				<c:if test="${requestScope.languageId == language.languageId}">
 				<figure class="language selected">
@@ -85,20 +82,21 @@
 				<c:if test="${requestScope.languageId != language.languageId}">
 				<figure class="language">
 				</c:if>
-					<div class="name"><a href="${pageContext.request.contextPath}/controller?command=show_courses_by_language&languageId=${language.languageId}" title="${language.languageName}"><fmt:message key="local.language.${language.languageName}"/></a></div>
+					<div class="image"><a href="${pageContext.request.contextPath}/controller?command=show_courses_from_language&languageId=${language.languageId}"  title="${language.languageName}"><img src="${pageContext.request.contextPath}/upload?imageName=${category.imageName}" alt="${language.languageName}"></a></div>
+					<div class="name"><a href="${pageContext.request.contextPath}/controller?command=show_courses_from_language&languageId=${language.languageId}" title="${language.languageName}"><fmt:message key="local.language.${language.languageName}"/></a></div>
 				</figure>
 				</c:forEach>
+				</figure>
 			</div>
 			</c:if>
-	
-		<c:if test="${requestScope.courses != null}">
 			<div class="courses">
                 <c:forEach var="course" items="${requestScope.courses}">
                     <figure class="course">
+                        <div class="image"><img src="${pageContext.request.contextPath}/upload?imageName=${course.imageName}" alt="${course.courseName}"></div>
                         <div class="name"><p>${course.courseName}</p></div>
                         <div class="price"><p>${course.price}$</p></div>
-                       
-						<c:if test="${sessionScope.role == 'STUDENT'}">
+                                
+						<c:if test="${sessionScope.role == 'CLIENT'}">
                         <form action="${pageContext.request.contextPath}/controller" method="post" >
                             <input type="hidden" name="command" value="add_course_to_liked"/>
                             <input type="hidden" name="courseId" value="${course.courseId}"/>
@@ -112,14 +110,13 @@
 							<input type="hidden" name="command" value="change_course_data"/>
                             <input type="hidden" name="courseId" value="${course.courseId}"/>
                             <div><label>${name}:<input type="text" name="courseName" value="${course.courseName}"/></label></div>
-                            <div><label>${price}:<input type="text" name="course" value="${course.price}"/>$</label></div>
+                            <div><label>${price}:<input type="text" name="price" value="${course.price}"/>$</label></div>
                             <input type="submit" onclick="closeEditForm('form_edit_${course.courseId}', 'button_edit_${course.courseId}')" value="${save}"/>
                         </form>
 						</c:if>
                     </figure>
                 </c:forEach>
 			</div>
-			</c:if>
 		</div>
 		<hr/>
 	</div>

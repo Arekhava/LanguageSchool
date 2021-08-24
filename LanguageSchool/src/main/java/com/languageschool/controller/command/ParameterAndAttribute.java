@@ -7,7 +7,6 @@ public class ParameterAndAttribute {
 	public static final String LANGUAGE_ID = "languageId";
 	public static final String LANGUAGE_NAME = "languageName";
 	public static final String COURSE_NAME = "courseName";
-	public static final String TEACHER_NAME = "teacherName";
 	public static final String NEXT_START = "nextStart";
 	public static final String SUBSCRIPTION_LIKED_ID = "subscriptionLikedId";
 	public static final String SUBSCRIPTIONS = "subscriptions";
@@ -22,7 +21,6 @@ public class ParameterAndAttribute {
 	public static final String CURRENT_LOGIN = "currentLogin";
 	public static final String EMAIL = "email";
 	public static final String ERROR_MESSAGE = "errorMessageList";
-	public static final String IMAGE_NAME = "imageName";
 	public static final String INFO_MESSAGE = "infoMessage";
 	public static final String LOCALE = "locale";
 	public static final String LOGIN = "login";
@@ -43,6 +41,7 @@ public class ParameterAndAttribute {
 	public static final String USERS = "users";
 	public static final String USER_ID = "userId";
 	public static final String USER_NAME = "userName";
+	public static final String IMAGE_NAME = "imageName";
 
 			
 	private ParameterAndAttribute() {

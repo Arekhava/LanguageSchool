@@ -52,7 +52,7 @@ public class Controller extends HttpServlet {
 	 */
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
- 		String commandName = request.getParameter(ParameterAndAttribute.COMMAND);
+ 		String commandName =  request.getParameter(ParameterAndAttribute.COMMAND);
 		Command command = CommandProvider.defineCommand(commandName);
 		Router router = command.execute(request);
 		switch (router.getRouteType()) {

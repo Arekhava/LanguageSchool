@@ -20,7 +20,7 @@ import com.languageschool.model.pool.ConnectionPoolException;
  * @see LanguageDao
  */
 public class LanguageDaoImpl implements LanguageDao {
-	private static final String SQL_SELECT_ALL_LANGUAGES = "SELECT ID, NAME FROM LANGUAGES";
+	private static final String SQL_SELECT_ALL_LANGUAGES = "SELECT ID, NAME, IMAGE_NAME FROM LANGUAGES";
 
 	@Override
 	public List<Language> findAll() throws DaoException {

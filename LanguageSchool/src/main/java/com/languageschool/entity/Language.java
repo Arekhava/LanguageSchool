@@ -11,6 +11,8 @@ public class Language implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long languageId;
 	private String languageName;
+	private String languageImage;
+	
 
 	/**
 	 * Constructs a new Language
@@ -23,9 +25,11 @@ public class Language implements Serializable {
 	 * name
 	 * 
 	 */
-	public Language(Long languageId, String languageName) {
+	public Language(Long languageId, String languageName, String languageImage) {
 		this.languageId = languageId;
 		this.languageName = languageName;
+		this.languageImage = languageImage;
+		
 	}
 
 	public Long getLanguageId() {
@@ -44,6 +48,15 @@ public class Language implements Serializable {
 		this.languageName = languageName;
 	}
 
+	
+
+	public String getLanguageImage() {
+		return languageImage;
+	}
+
+	public void setLanguageImage(String languageImage) {
+		this.languageImage = languageImage;
+	}
 
 	@Override
 	public int hashCode() {
@@ -51,6 +64,7 @@ public class Language implements Serializable {
 		int result = 1;
 		result = prime * result + ((languageId == null) ? 0 : languageId.hashCode());
 		result = prime * result + ((languageName == null) ? 0 : languageName.hashCode());
+		result = prime * result + ((languageImage == null) ? 0 : languageImage.hashCode());
 		return result;
 	}
 
@@ -72,9 +86,14 @@ public class Language implements Serializable {
 			if (other.languageName != null)
 				return false;
 		} else if (!languageName.equals(other.languageName))
+		if (languageImage == null) {
+			if (other.languageImage != null)
+				return false;
+		} else if (!languageImage.equals(other.languageImage))
 			return false;
-		return true;
-	}
+		return false;
+		}
+
 
 	@Override
 	public String toString() {
@@ -83,6 +102,8 @@ public class Language implements Serializable {
 		builder.append(languageId);
 		builder.append(", languageName=");
 		builder.append(languageName);
+		builder.append(", languageImage=");
+		builder.append(languageImage);
 		builder.append("]");
 		return builder.toString();
 	}

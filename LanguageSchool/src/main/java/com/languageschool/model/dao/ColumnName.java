@@ -26,7 +26,7 @@ public final class ColumnName {
 	public static final String LANGUAGE_ID = "language_id";
 	public static final String COURSE_NAME = "name";
 	public static final String COURSE_PRICE = "price";
-	public static final String TEACHER_NAME = "teacher_name";   
+	//public static final String IMAGE_NAME = "image_name";   
 	
 	public static final String SUBSCRIPTIONS_ID = "id";
 	public static final String SUBSCRIPTIONS_USER_ID = "user_id";
@@ -34,7 +34,8 @@ public final class ColumnName {
 	public static final String SUBSCRIPTIONS_STATUS = "status";
 	public static final String SUBSCRIPTIONS_PAYMENT_METHOD = "payment_method";
 	public static final String SUBSCRIPTIONS_COST = "cost";
-	
+	public static final String LANGUAGES_IMAGE_NAME = "image_name";
+	public static final String COURSE_IMAGE_NAME = "image_name";
 
 
 	

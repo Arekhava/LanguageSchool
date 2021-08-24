@@ -41,8 +41,8 @@
                         </c:if>
                         <li><a href="${pageContext.request.contextPath}/controller?command=go_to_main_page">${catalog}</a>
                             <ul class="menu2">
-                            <c:forEach var="category" items="${sessionScope.productCategories}">
-                                <li><a href="${pageContext.request.contextPath}/controller?command=show_courses_by_language&languageId=${category.categoryId}"><fmt:message key="local.category.${category.categoryName}"/></a></li>
+                            <c:forEach var="language" items="${sessionScope.languages}">
+                                <li><a href="${pageContext.request.contextPath}/controller?command=show_courses_by_language&languageId=${language.languageId}"><fmt:message key="local.language.${language.languageName}"/></a></li>
                             </c:forEach>
                             <c:if test="${sessionScope.role == 'ADMIN'}">
                                 <li><a href="${pageContext.request.contextPath}/jsp/admin/adding_course.jsp">${add_course}</a></li>

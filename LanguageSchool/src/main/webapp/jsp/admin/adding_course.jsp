@@ -26,7 +26,7 @@
 <%@ include file="/jsp/fragment/header.jsp" %>
 
 	<div class="main">
-	<p>${add_product}</p>
+	<p>${add_course}</p>
 	<c:set var="currentPage" value="${pageContext.request.requestURI}" scope="session"> </c:set>
 	
 	<form class="add_course_form" action="${pageContext.request.contextPath}/upload" method="post">
@@ -45,9 +45,9 @@
 			<label>${price}:</label>
 			<input type="text" name="price" required placeholder="${price}" pattern="\d{1,8}(\.\d{2})?"/> $
 		</div>
-		<div>
-			<label>${teacher_name}:</label>
-			<input type="text" name="teacherName" required placeholder="${teacher_name}" maxlength="45"/>
+			<div>
+			<label>${upload_image}:</label>
+			<input type="file" name="file" value="" height="150">
 		</div>
 		<div>
 			<label>${next_start}:</label>
@@ -56,6 +56,10 @@
 		<div>
 			<label>${course_id}:</label>
 			<input type="text" name="courseId" required placeholder="${course_id}" maxlength="45"/>
+		</div>
+		<div>
+			<label>${upload_image}:</label>
+			<input type="file" name="file" value="" height="150">
 		</div>
 		<input type="submit" value="${add_to_catalog}">
 	</form>

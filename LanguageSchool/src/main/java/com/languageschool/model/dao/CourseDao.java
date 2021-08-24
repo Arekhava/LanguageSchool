@@ -22,7 +22,7 @@ public interface CourseDao extends BaseDao<Course> {
 	/**
 	 * Looking for courses by language
 	 * 
-	 * @param language {@link String} teacher id
+	 * @param language {@link String} language id
 	 * @return {@link List} of {@link Course} received from database if course
 	 *         are found, else emptyList
 	 * @throws DaoException if {@link ConnectionPoolException} or

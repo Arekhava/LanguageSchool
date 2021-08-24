@@ -54,9 +54,9 @@ final class DaoEntityBuilder {
 		Language language = new Language();
 		language.setLanguageId(resultSet.getLong(LANGUAGES_ID));
 		language.setLanguageName(resultSet.getString(LANGUAGES_NAME));
+		language.setLanguageImage(resultSet.getString(LANGUAGES_IMAGE_NAME));
 		return language;
 	}
-
 
 	/**
 	 * Builds new Course
@@ -69,7 +69,7 @@ final class DaoEntityBuilder {
 		Course course = new Course();
 		course.setCourseId(resultSet.getLong(COURSE_ID));
 		course.setCourseName(resultSet.getString(COURSE_NAME));
-		course.setTeacherName(resultSet.getString(TEACHER_NAME));
+		course.setImageName(resultSet.getString(COURSE_IMAGE_NAME));
 		course.setNextStart(resultSet.getDate(NEXT_START));
 		course.setPrice(resultSet.getBigDecimal(COURSE_PRICE));
 		return course;

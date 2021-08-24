@@ -16,7 +16,7 @@ public class Course implements Serializable {
 	private Long courseId;
 	private Long languageId;
 	private String courseName;
-	private String teacherName;
+	private String imageName;
 	private Date nextStart;
 	private BigDecimal price;
 	
@@ -77,14 +77,14 @@ public class Course implements Serializable {
 
 
 
-	public String getTeacherName() {
-		return teacherName;
+	public String getImageName() {
+		return imageName;
 	}
 
 
 
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 
@@ -109,7 +109,7 @@ public class Course implements Serializable {
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
 		result = prime * result + ((courseName == null) ? 0 : courseName.hashCode());
-		result = prime * result + ((teacherName == null) ? 0 : teacherName.hashCode());
+		result = prime * result + ((imageName == null) ? 0 : imageName.hashCode());
 		result = prime * result + ((nextStart == null) ? 0 : nextStart.hashCode());
 		return result;
 	}
@@ -142,10 +142,10 @@ public class Course implements Serializable {
 				return false;
 		} else if (!courseName.equals(other.courseName))
 			return false;
-		if (teacherName == null) {
-			if (other.teacherName != null)
+		if (imageName == null) {
+			if (other.imageName != null)
 				return false;
-		} else if (!teacherName.equals(other.teacherName))
+		} else if (!imageName.equals(other.imageName))
 			return false;
 		if (nextStart == null) {
 			if (other.nextStart != null)
@@ -160,12 +160,12 @@ public class Course implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Course [courseId=");
 		builder.append(courseId);
-		builder.append(", categoryId=");
+		builder.append(", languageId=");
 		builder.append(languageId);
 		builder.append(", courseName=");
 		builder.append(courseName);
-		builder.append(", teacherName=");
-		builder.append(teacherName);
+		builder.append(", imageName=");
+		builder.append(imageName);
 		builder.append(", nextStart=");
 		builder.append(nextStart);
 		builder.append(", price=");

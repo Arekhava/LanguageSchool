@@ -1,11 +1,6 @@
 package com.languageschool.entity.builder.impl;
 
-import static com.languageschool.controller.command.ParameterAndAttribute.COURSE_ID;
-import static com.languageschool.controller.command.ParameterAndAttribute.LANGUAGE_ID;
-import static com.languageschool.controller.command.ParameterAndAttribute.LANGUAGE_NAME;
-import static com.languageschool.controller.command.ParameterAndAttribute.NEXT_START;
-import static com.languageschool.controller.command.ParameterAndAttribute.PRICE;
-import static com.languageschool.controller.command.ParameterAndAttribute.TEACHER_NAME;
+import static com.languageschool.controller.command.ParameterAndAttribute.*;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -50,7 +45,7 @@ public class CourseBuilder implements EntityBuilder<Course> {
 			course.setLanguageId(Long.valueOf(languageId));
 		}
 		course.setCourseName(courseInfo.get(LANGUAGE_NAME));
-		course.setTeacherName(courseInfo.get(TEACHER_NAME));
+		course.setImageName(courseInfo.get(IMAGE_NAME));
 		Date sqlDate = null;
 		try {
 			java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(courseInfo.get(NEXT_START));

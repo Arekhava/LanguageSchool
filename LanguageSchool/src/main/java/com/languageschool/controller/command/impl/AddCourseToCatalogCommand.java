@@ -51,14 +51,18 @@ public class AddCourseToCatalogCommand implements Command {
 				session.setAttribute(ParameterAndAttribute.INFO_MESSAGE, MessageKey.INFO_COURSE_ADDED_TO_CATALOG_MESSAGE);
 				String languageId = request.getParameter(ParameterAndAttribute.LANGUAGE_ID);
 				router = new Router(PagePath.SHOW_COURSES_BY_LANGUAGE + languageId, RouteType.REDIRECT);
-			} catch (InvalidDataException e) {
-				logger.error("invalid data", e);						
-				session.setAttribute(ParameterAndAttribute.ERROR_MESSAGE, e.getErrorDescription());
-				router = new Router(PagePath.ADDED_COURSE, RouteType.REDIRECT);
-			} catch (ServiceException e) {
-				logger.error("error adding a course to the catalog", e);
-				router = new Router(PagePath.ERROR, RouteType.REDIRECT);
-			}
+		} catch (InvalidDataException e) {
+			logger.error("invalid data", e);
+			FileUtil.deleteFile(
+					courseInfo.get(ParameterAndAttribute.PATH) +courseInfo.get(ParameterAndAttribute.IMAGE_NAME));
+			session.setAttribute(ParameterAndAttribute.ERROR_MESSAGE, e.getErrorDescription());
+			router = new Router(PagePath.ADDED_COURSE, RouteType.REDIRECT);
+		} catch (ServiceException e) {
+			logger.error("error adding a course to the catalog", e);
+			FileUtil.deleteFile(
+					courseInfo.get(courseInfo.get(ParameterAndAttribute.PATH) + ParameterAndAttribute.IMAGE_NAME));
+			router = new Router(PagePath.ERROR, RouteType.REDIRECT);
+		}
 			return router;
 		}
 	}
