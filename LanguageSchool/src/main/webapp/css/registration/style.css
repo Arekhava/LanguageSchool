@@ -1,17 +1,17 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
 
 html {
-    background-color: #ddd;
+	background-color: #ddd;
 }
+
 .wrapper {
 	min-height: calc(100vh - 55px);
 }
 /* ---------- REGISTRATION-FORM ---------- */
-
 .main {
 	margin: auto;
 	width: 70%;
@@ -24,14 +24,14 @@ html {
 	padding-top: 50px;
 }
 
-#submit-form > div:first-child{
+#submit-form>div:first-child {
 	padding: 20px;
 	background-color: #444444;
 	border-radius: 15px 15px 0 0;
 	text-transform: uppercase;
 }
 
-#submit-form h1{
+#submit-form h1 {
 	text-align: center;
 	color: #fff;
 	font-size: 14px;
@@ -51,10 +51,8 @@ html {
 	-webkit-appearance: none;
 }
 
-#submit-form input[type="text"],
-#submit-form input[type="email"],
-#submit-form input[type="tel"],
-#submit-form input[type="password"] {
+#submit-form input[type="text"], #submit-form input[type="email"],
+	#submit-form input[type="tel"], #submit-form input[type="password"] {
 	border: 1px solid #dcdcdc;
 	padding: 12px 10px;
 	width: 93%;

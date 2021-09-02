@@ -1,20 +1,22 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
 
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 body {
 	font-family: sans-serif;
 	background: #ddd;
 }
+
 .wrapper {
 	min-height: calc(100vh - 55px);
 }
+
 a {
 	color: #999;
 	text-decoration: none;
@@ -29,41 +31,41 @@ input {
 	-webkit-appearance: none;
 }
 
-header{
+header {
 	padding: 20px;
 	background-color: #df5558;
 	border-radius: 15px 15px 0 0;
 	text-transform: uppercase;
 }
 
-ul{
+ul {
 	float: right;
 }
 
-ul li{
+ul li {
 	float: left;
 }
 
-ul li:first-child{
+ul li:first-child {
 	border-right: 1px solid #fff
 }
 
-ul li input[type="submit"]{
+ul li input[type="submit"] {
 	display: block;
 	padding: 0 5px;
 	font-size: 14px;
 	color: #fff
 }
 
-ul li input[type="submit"]:hover{
+ul li input[type="submit"]:hover {
 	text-decoration: underline;
 }
 
-.active input[type="submit"]{
+.active input[type="submit"] {
 	text-decoration: underline;
 }
 
-h1{
+h1 {
 	text-align: center;
 	color: #fff;
 	font-size: 14px;
@@ -88,13 +90,13 @@ input[type="submit"] {
 	content: "";
 	display: table;
 }
+
 .clearfix:after {
 	clear: both;
 }
 
 /* ---------- LOGIN-FORM ---------- */
-
-body > div:first-child{
+body>div:first-child {
 	margin: auto;
 	width: 70%;
 }
@@ -103,7 +105,6 @@ body > div:first-child{
 	margin: 150px auto 20px;
 	width: 350px;
 }
-
 
 #login-form>fieldset {
 	background: #fff;
@@ -142,7 +143,7 @@ body > div:first-child{
 }
 
 /* ---------- BACK  ---------- */
-#login-form > header > a {
+#login-form>header>a {
 	border-radius: 3px;
 	color: #fff;
 	display: block;
@@ -155,11 +156,10 @@ body > div:first-child{
 	background: #444444;
 }
 
-#login-form > header > a:hover{
+#login-form>header>a:hover {
 	background: #198d98;
 }
 /* ----------------------------- */
-
 .info {
 	float: left;
 	margin-top: 30px;
@@ -167,19 +167,19 @@ body > div:first-child{
 }
 
 /* ----------- RU/EN ---------- */
-.locale{
-	padding:0;
+.locale {
+	padding: 0;
 	background: none;
 }
 
-.locale>input[type="submit"]{
+.locale>input[type="submit"] {
 	padding: 0 5px;
 	font-size: 14px;
 	background: none;
 	color: #fff;
 }
 
-.locale>input[type="submit"]:hover{
+.locale>input[type="submit"]:hover {
 	text-decoration: underline;
 	background: none;
 }
