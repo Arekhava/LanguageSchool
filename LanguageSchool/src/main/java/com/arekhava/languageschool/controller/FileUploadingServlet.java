@@ -44,7 +44,9 @@ public class FileUploadingServlet extends HttpServlet {
 		String imageName = request.getParameter(ParameterAndAttribute.IMAGE_NAME);
 		String path = ResourceBundle.getBundle(BUNDLE_NAME).getString(PATH_IMG);
 		File file = new File(path + imageName);
+		logger.info(file);
 		BufferedImage bufferedImage = ImageIO.read(file);
+		logger.info(bufferedImage);
 		try (OutputStream outputStream = response.getOutputStream()) {
 			ImageIO.write(bufferedImage, FORMAT_FILE_NAME, outputStream);
 		}

@@ -39,15 +39,15 @@
 	margin-right: 5px;
 }
 
-.products_table {
+.courses_table {
 	width: 90%;
 	margin: 10px auto;
 }
 
-.products_table thead {
+.courses_table thead {
 	color: #000;
 }
 
-.products_table img {
+.courses_table img {
 	height: 100px;
 }

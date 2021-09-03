@@ -7,15 +7,15 @@
 	margin: 15px auto;
 }
 
-.add_product_form {
+.add_course_form {
 	margin-bottom: 15px;
 }
 
-.add_product_form>div {
+.add_course_form>div {
 	margin-bottom: 10px;
 }
 
-.add_product_form>input, .add_product_form>label {
+.add_course_form>input, .add_course_form>label {
 	margin-right: 15px;
 }
 

@@ -38,41 +38,27 @@
 		<%@ include file="/jsp/fragment/header.jsp"%>
 		<%@ include file="/jsp/fragment/error_info.jsp"%>
 
+	<c:if test = "${not empty requestScope.courses}">
+			<c:forEach var="product" items="${requestScope.courses}">
+			<tr align="center" valign="center">
+			    <td>${course.courseId}</td>
 
+				<td>
+					<img id="course_img" src="${pageContext.request.contextPath}/upload?imageName=${course.imageName}" />
+				</td>
 
-		<nav>
-			<ul class="pagination">
-				<c:if test="${requestScope.page > 1}">
-					<li class="page-item"><a class="page-link"
-						href="${sessionScope.currentPage}&page=${requestScope.page-1}">${previous}</a>
-					</li>
-				</c:if>
+				<td>${course.courseName}</td>
 
-				<c:forEach begin="1" end="${requestScope.numberOfPages}" var="i">
-					<c:choose>
-						<c:when test="${requestScope.page == i}">
-							<li class="page-item active"><a class="page-link"> ${i}
-									<span class="sr-only">(current)</span>
-							</a></li>
-						</c:when>
-						<c:otherwise>
-							<li class="page-item"><a class="page-link"
-								href="${sessionScope.currentPage}&page=${i}">${i}</a></li>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
+				<td>${course.price}$</td>
 
-				<c:if test="${requestScope.page < requestScope.numberOfPages}">
-					<li class="page-item"><a class="page-link"
-						href="${sessionScope.currentPage}&page=${requestScope.page+1}">${next}</a>
-					</li>
-				</c:if>
-			</ul>
-		</nav>
-	</div>
+				<td>${course.nextStart} ${pc}</td>
+			</tr>
+			</c:forEach>
+		</table>
+
 	</c:if>
-	</div>
-	<mytag:copyright />
+</div>
+<mytag:copyright/>
 
 </body>
 </html>
