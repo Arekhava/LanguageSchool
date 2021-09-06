@@ -26,6 +26,7 @@
 <fmt:message key="local.save" var="save" />
 <fmt:message key="local.name" var="name" />
 <fmt:message key="local.price" var="price" />
+<fmt:message key="local.nextStart" var="nextStart" />
 <fmt:message key="local.cheap_first" var="cheap_first" />
 <fmt:message key="local.expensive_first" var="expensive_first" />
 <title>${title}</title>
@@ -123,9 +124,10 @@
 			<div class="courses">
                 <c:forEach var="course" items="${requestScope.courses}">
                     <figure class="course">
-                        <div class="image"><img src="${pageContext.request.contextPath}/upload?imageName=${course.courseName}" alt="${course.courseName}"></div>
+                        <div class="image"><img src="${pageContext.request.contextPath}/upload?imageName=${course.imageName}" alt="${course.courseName}"></div>
                         <div class="name"><p>${course.courseName}</p></div>
                         <div class="price"><p>${course.price}$</p></div>
+                        <div class="nextStart"><p>${course.nextStart}</p></div>
 						<c:if test="${sessionScope.role == 'STUDENT'}">
                         <form action="${pageContext.request.contextPath}/controller" method="post" >
                             <input type="hidden" name="command" value="add_course_to_liked"/>
@@ -141,6 +143,7 @@
                             <input type="hidden" name="courseId" value="${course.courseId}"/>
                             <div><label>${name}:<input type="text" name="courseName" value="${course.courseName}"/></label></div>
                             <div><label>${price}:<input type="text" name="price" value="${course.price}"/>$</label></div>
+                            <div><label>${nextStart}:<input type="date" name="nextStart" value="{course.nextStart}"/>$</label></div>
                             <input type="submit" onclick="closeEditForm('form_edit_${course.courseId}', 'button_edit_${course.courseId}')" value="${save}"/>
                         </form>
 						</c:if>

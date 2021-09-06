@@ -16,6 +16,8 @@ import javax.mail.internet.MimeMessage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
+
 public class MailSender {
 	private static final Logger logger = LogManager.getLogger();
 	private static final String MAIL_PROPERTIES = "mail.properties";
@@ -70,8 +72,8 @@ public class MailSender {
 		    props.put("mail.smtp.port", "465");
 		    props.put("mail.smtp.starttls.enable", "true");
 		    props.put("mail.smtp.auth", "true");  
-		    props.put("mail.smtp.user", "language.school.web@mail.ru");
-		    props.put("mail.smtp.password", "2LAdlgvj0JtCc51L50u7");
+		    props.put("mail.smtp.user", "language.school.web.web@mail.ru");
+		    props.put("mail.smtp.password", "luINZAQGkKnYAnHlDlFW");
 		    props.put("mail.debug", "true");  
 		    props.put("mail.smtp.socketFactory.port", "465");  
 		    props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");  
@@ -79,17 +81,17 @@ public class MailSender {
 		    Session session = Session.getDefaultInstance(props, 
 		    		 new javax.mail.Authenticator() {
 		        protected PasswordAuthentication getPasswordAuthentication() {  
-		        return new PasswordAuthentication("language.school.web@mail.ru","2LAdlgvj0JtCc51L50u7");  
+		        return new PasswordAuthentication("language.school.web.web@mail.ru","luINZAQGkKnYAnHlDlFW");  
 		    }
 		    });
 
 		    Message msg = new MimeMessage(session);
-		    msg.setFrom(new InternetAddress("language.school.web@mail.ru"));
+		    msg.setFrom(new InternetAddress("language.school.web.web@mail.ru"));
 		    msg.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 		    msg.setSubject(messageSubject);
 		    msg.setText(messageText);
 
-		    Transport.send(msg, "language.school.web@mail.ru", "2LAdlgvj0JtCc51L50u7");
+		    Transport.send(msg, "language.school.web.web@mail.ru", "2luINZAQGkKnYAnHlDlFW");
 		    result = true;
 		} catch (MessagingException e) {
 			logger.error("error sending message", e);

@@ -10,7 +10,6 @@
 <fmt:setLocale value="${sessionScope.locale}" />
 <fmt:setBundle basename="local" />
 <fmt:message key="local.title.courses" var="title" />
-<fmt:message key="local.article" var="article" />
 <fmt:message key="local.course" var="course" />
 <fmt:message key="local.price" var="price" />
 <fmt:message key="local.nextStart" var="nextStart" />
@@ -38,8 +37,7 @@
 		<%@ include file="/jsp/fragment/header.jsp"%>
 		<%@ include file="/jsp/fragment/error_info.jsp"%>
 
-	<c:if test = "${not empty requestScope.courses}">
-			<c:forEach var="product" items="${requestScope.courses}">
+			<c:forEach var="course" items="${requestScope.courses}">
 			<tr align="center" valign="center">
 			    <td>${course.courseId}</td>
 
@@ -51,7 +49,7 @@
 
 				<td>${course.price}$</td>
 
-				<td>${course.nextStart} ${pc}</td>
+				<td>${course.nextStart}</td>
 			</tr>
 			</c:forEach>
 		</table>
