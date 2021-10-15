@@ -23,109 +23,105 @@ public class ConnectionPool {
 	private BlockingQueue<ProxyConnection> freeConnections;
 	private BlockingQueue<ProxyConnection> givenAwayConnections;
 
-	/**
-	 * Gets instance of this class
-	 * 
-	 * @return {@link ConnectionPool} instance
-	 */
-	public static ConnectionPool getInstance() {
-		return instance;
-	}
 
-	private ConnectionPool() {
-	}
+		/**
+		 * Gets instance of this class
+		 * 
+		 * @return {@link ConnectionPool} instance
+		 */
+		public static ConnectionPool getInstance() {
+			return instance;
+		}
 
-	/**
-	 * Initialize connection pool
-	 * 
-	 * @throws ConnectionPoolException if no connection created
-	 */
-	public void initPool() throws ConnectionPoolException {
-		freeConnections = new ArrayBlockingQueue<ProxyConnection>(DEFAULT_POOL_SIZE);
-		givenAwayConnections = new ArrayBlockingQueue<ProxyConnection>(DEFAULT_POOL_SIZE);
-		for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
-			try {
-				Connection connection = ConnectionFactory.createConnection();
-				ProxyConnection proxyConnection = new ProxyConnection(connection);
-				freeConnections.add(proxyConnection);
-			} catch (SQLException e) {
-				logger.error("database access error, connection not received", e);
-				throw new ConnectionPoolException("connection pool initialization error");
+		private ConnectionPool() {
+		}
+
+		/**
+		 * Initialize connection pool
+		 * 
+		 * @throws ConnectionPoolException if no connection created
+		 */
+		public void initPool() throws ConnectionPoolException {
+			freeConnections = new ArrayBlockingQueue<ProxyConnection>(DEFAULT_POOL_SIZE);
+			givenAwayConnections = new ArrayBlockingQueue<ProxyConnection>(DEFAULT_POOL_SIZE);
+			for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
+				try {
+					Connection connection = ConnectionFactory.createConnection();
+					ProxyConnection proxyConnection = new ProxyConnection(connection);
+					freeConnections.add(proxyConnection);
+				} catch (SQLException e) {
+					logger.error("database access error, connection not received", e);
+					throw new ConnectionPoolException("connection pool initialization error");
+				}
 			}
 		}
-	}
 
-	/**
-	 * Gets a connection from the connection pool
-	 * 
-	 * @return {@link Connection} connection to the database
-	 * @throws ConnectionPoolException if {@link InterruptedException} occurs
-	 */
-	public Connection getConnection() throws ConnectionPoolException {
-		ProxyConnection connection;
-		try {
-			connection = freeConnections.take();
-			givenAwayConnections.put(connection);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			throw new ConnectionPoolException("error getting connection", e);
-		}
-		return connection;
-	}
-	
-	/**
-	 * Returns the connection to the connection pool
-	 * 
-	 * @param connection {@link Connection} connection to the database
-	 * @return boolean
-	 */
-	public void releaseConnection(Connection connection) {
-		 if (!(connection instanceof ProxyConnection)) {
-	            logger.error("wild connection is detected");
-	            throw new ConnectionPoolException("wild connection is detected : " + connection);
-	        }
-		givenAwayConnections.remove(connection);
-		try {
-			freeConnections.offer((ProxyConnection) connection);
-		 } catch (ConnectionPoolException e) {
-	            Thread.currentThread().interrupt();
-		}
-	}
-	/**
-	 * Destroy connection pool
-	 * 
-	 * @throws ConnectionPoolException if {@link InterruptedException} or
-	 *                                 {@link SQLException} occurs
-	 */
-	public void destroyPool() throws ConnectionPoolException {
-		for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
+		/**
+		 * Gets a connection from the connection pool
+		 * 
+		 * @return {@link Connection} connection to the database
+		 * @throws ConnectionPoolException if {@link InterruptedException} occurs
+		 */
+		public Connection getConnection() throws ConnectionPoolException {
+			ProxyConnection connection;
 			try {
-				freeConnections.take().reallyClose();
+				connection = freeConnections.take();
+				givenAwayConnections.offer(connection);
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
-				throw new ConnectionPoolException("Thread was interrupted while taking a free connection", e);
-			} catch (SQLException e) {
-				throw new ConnectionPoolException("error closing connection", e);
+				throw new ConnectionPoolException("error getting connection", e);
+			}
+			return connection;
+		}
+
+		/**
+		 * Returns the connection to the connection pool
+		 * 
+		 * @param connection {@link Connection} connection to the database
+		 * @return boolean
+		 */
+		public boolean releaseConnection(Connection connection) {
+			boolean isReleased = false;
+			if (givenAwayConnections.remove(connection)) {
+				isReleased = freeConnections.offer((ProxyConnection) connection);
+			}
+			return isReleased;
+		}
+
+		/**
+		 * Destroy connection pool
+		 * 
+		 * @throws ConnectionPoolException if {@link InterruptedException} or
+		 *                                 {@link SQLException} occurs
+		 */
+		public void destroyPool() throws ConnectionPoolException {
+			for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
+				try {
+					freeConnections.take().reallyClose();
+				} catch (InterruptedException e) {
+					Thread.currentThread().interrupt();
+					throw new ConnectionPoolException("Thread was interrupted while taking a free connection", e);
+				} catch (SQLException e) {
+					throw new ConnectionPoolException("error closing connection", e);
+				}
+			}
+			deregisterDrivers();
+		}
+
+		/**
+		 * Unregisters drivers
+		 * 
+		 * @throws ConnectionPoolException if {@link SQLException} occurs
+		 */
+		private void deregisterDrivers() throws ConnectionPoolException {
+			Enumeration<Driver> drivers = DriverManager.getDrivers();
+			while (drivers.hasMoreElements()) {
+				Driver driver = drivers.nextElement();
+				try {
+					DriverManager.deregisterDriver(driver);
+				} catch (SQLException e) {
+					throw new ConnectionPoolException("driver deregistration error", e);
+				}
 			}
 		}
-		deregisterDrivers();
 	}
-
-	/**
-	 * Unregisters drivers
-	 * 
-	 * @throws ConnectionPoolException if {@link SQLException} occurs
-	 */
-	private void deregisterDrivers() throws ConnectionPoolException {
-		Enumeration<Driver> drivers = DriverManager.getDrivers();
-		while (drivers.hasMoreElements()) {
-			Driver driver = drivers.nextElement();
-			try {
-				DriverManager.deregisterDriver(driver);
-			} catch (SQLException e) {
-				throw new ConnectionPoolException("driver deregistration error", e);
-			}
-		}
-	}
-}
-

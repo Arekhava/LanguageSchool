@@ -2,7 +2,9 @@ package com.arekhava.languageschool.model.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.arekhava.languageschool.entity.Course;
@@ -12,6 +14,8 @@ import com.arekhava.languageschool.model.dao.SubscriptionCourseConnectionDao;
 import com.arekhava.languageschool.model.pool.ConnectionPool;
 import com.arekhava.languageschool.model.pool.ConnectionPoolException;
 
+
+
 /**
  * Works with database table course_suscriptions
  * 
@@ -20,11 +24,13 @@ import com.arekhava.languageschool.model.pool.ConnectionPoolException;
  */
 public class SubscriptionCourseConnectionDaoImpl implements SubscriptionCourseConnectionDao {
 	private static final String SQL_INSERT_SUBSCRIPTION_COURSE_CONNECTION = "INSERT INTO SUBSCRIPTION_COURSE_CONNECTION "
-			+ "(SUBSCRIPTION_ID, COURSE_ID ) VALUES (?, ?)";
+			+ "(SUBSCRIPTIONS_ID, COURSES_ID ) VALUES (?, ?)";
 	private static final String SQL_UPDATE_SUBSCRIPTION_COURSE_CONNECTION = "UPDATE SUBSCRIPTION_COURSE_CONNECTION "
-			+ "SET SUBSCRIPTION_ID=? AND COURSE_ID=?";
+			+ "SET SUBSCRIPTIONS_ID=? AND COURSES_ID=?";
 	private static final String SQL_DELETE_SUBSCRIPTION_COURSE_CONNECTION = "DELETE FROM SUBSCRIPTION_COURSE_CONNECTION "
-			+ "WHERE SUBSCRIPTION_ID=? AND COURSE_ID=?";
+			+ "WHERE SUBSCRIPTIONS_ID=? AND COURSES_ID=?";
+	private static final String SQL_SELECT_SUBSCRIPTION_BY_ID = "SELECT COURSES.ID, COURSES.LANGUAGE_ID, COURSES.NAME, COURSES.PRICE, COURSES.NEXT_START "
+			+ "FROM SUBSCRIPTION_COURSE_CONNECTION JOIN COURSES ON SUBSCRIPTION_COURSE_CONNECTION.COURSES_ID=COURSES.ID JOIN LANGUAGES ON COURSES.LANGUAGE_ID=LANGUAGES.ID WHERE SUBSCRIPTION_COURSE_CONNECTION.SUBSCRIPTIONS_ID=?";
 	
 
 	@Override
@@ -72,12 +78,25 @@ public class SubscriptionCourseConnectionDaoImpl implements SubscriptionCourseCo
 	public List<SubscriptionCourseConnection> findAll() throws DaoException {
 		throw new UnsupportedOperationException("operation not supported for class " + this.getClass().getName());
 	}
-
+	
 	@Override
 	public List<Course> findBySubscriptionId(Long subscriptionId) throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+		List<Course> courses = new ArrayList<>();
+		try (Connection connection = ConnectionPool.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement(SQL_SELECT_SUBSCRIPTION_BY_ID)) {
+			statement.setLong(1, subscriptionId);
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				Course course = DaoEntityBuilder.buildLikedCourse(resultSet);
+				courses.add(course);
+			}
+		} catch (ConnectionPoolException | SQLException e) {
+			throw new DaoException("database error", e);
+		}
+	return courses;
 	}
 
+	
+	
 }
 

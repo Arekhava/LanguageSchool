@@ -9,8 +9,8 @@
 <meta charset="utf-8">
 <fmt:setLocale value="${sessionScope.locale}" />
 <fmt:setBundle basename="local" />
-<fmt:message key="local.title.error" var="title" />
-<fmt:message key="local.error404" var="error" />
+<fmt:message key="local.title.cancel" var="title" />
+<fmt:message key="local.cancel" var="cancel" />
 <title>${title}</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/common/header.css"
@@ -31,7 +31,7 @@
 				scope="session">
 			</c:set>
 			<div>
-				<img src="${pageContext.request.contextPath}/upload?imageName=error404.jpg">
+				<img src="${pageContext.request.contextPath}/upload?imageName=admin.jpg">
 			</div>
 		</div>
 	</div>

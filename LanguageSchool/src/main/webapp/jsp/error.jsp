@@ -31,7 +31,7 @@
 				scope="session">
 			</c:set>
 			<div>
-				<img src="${pageContext.request.contextPath}/upload">
+				<img src="${pageContext.request.contextPath}/upload?imageName=error.jpg">
 			</div>
 		</div>
 	</div>

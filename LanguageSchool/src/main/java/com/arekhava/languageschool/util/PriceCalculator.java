@@ -21,18 +21,17 @@ public final class PriceCalculator {
 	 * @param courses {@link List} of {@link Course} 
 	 * @return {@link BigDecimal} the total cost of courses
 	 */
-	public static BigDecimal calculateTotalCost(List<Course> courses) {
-		BigDecimal totalCost = BigDecimal.ZERO;
-		if (courses == null) {
+	public static BigDecimal calculateTotalCost(List <Course> courses) {
+		BigDecimal totalCost = BigDecimal.ZERO;	
+		if (courses == null ){
 			return totalCost;
-		/*}
-		for (Map.Entry<Product, Integer> productAndQuantity : products.entrySet()) {
-			BigDecimal price = productAndQuantity.getKey().getPrice();
-			BigDecimal quantity = new BigDecimal(productAndQuantity.getValue());
-			BigDecimal productCost = price.multiply(quantity);
-			totalCost = totalCost.add(productCost);*/
-		}
-		
-		return totalCost;	
+	}
+	for (Course course : courses)
+	{
+		BigDecimal price = course.getPrice();
+		totalCost = totalCost.add(price);
+	}
+	return totalCost;
 	}
 }
+

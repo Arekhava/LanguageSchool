@@ -19,6 +19,7 @@ import com.arekhava.languageschool.util.MessageKey;
 import com.arekhava.languageschool.util.UserControl;
 
 
+
 /**
  * The command is responsible for removing a course from the liked
  * 
@@ -55,3 +56,4 @@ public class RemoveCourseFromLikedCommand implements Command {
 		return router;
 	}
 }
+	

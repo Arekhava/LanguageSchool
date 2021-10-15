@@ -70,6 +70,24 @@ final class DaoEntityBuilder {
 		course.setCourseId(resultSet.getLong(COURSE_ID));
 		course.setCourseName(resultSet.getString(COURSE_NAME));
 		course.setImageName(resultSet.getString(COURSE_IMAGE_NAME));
+		//course.setLanguageId(resultSet.getLong(LANGUAGE_ID));
+		course.setNextStart(resultSet.getDate(NEXT_START));
+		course.setPrice(resultSet.getBigDecimal(COURSE_PRICE));
+		return course;
+	}
+	/**
+	 * Builds new LikedCourse
+	 * 
+	 * @param resultSet {@link ResultSet} database result set
+	 * @return {@link Course}
+	 * @throws SQLException
+	 */
+	static Course buildLikedCourse(ResultSet resultSet) throws SQLException {
+		Course course = new Course();
+		course.setCourseId(resultSet.getLong(COURSE_ID));
+		course.setCourseName(resultSet.getString(COURSE_NAME));
+		//course.setImageName(resultSet.getString(COURSE_IMAGE_NAME));
+		//course.setLanguageId(resultSet.getLong(LANGUAGE_ID));
 		course.setNextStart(resultSet.getDate(NEXT_START));
 		course.setPrice(resultSet.getBigDecimal(COURSE_PRICE));
 		return course;

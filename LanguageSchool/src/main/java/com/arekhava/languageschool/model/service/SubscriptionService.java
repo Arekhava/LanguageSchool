@@ -109,5 +109,15 @@ public interface SubscriptionService {
 	 * @throws ServiceException if {@link DaoException} occurs
 	 */
 	List<Subscription> takeSubscriptionsByStatus(String subscriptionStatus) throws ServiceException;
+	
+
+	/**
+	 * Gives subscriptions by user login
+	 * 
+	 * @return {@link List} of {@link Subscription} received from database if subscriptions are
+	 *         found, else emptyList
+	 * @throws ServiceException if {@link DaoException} occurs
+	 */
+	List<Subscription> findAllSubscriptions() throws ServiceException;
 }
 

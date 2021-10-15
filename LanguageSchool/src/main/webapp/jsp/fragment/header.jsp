@@ -55,7 +55,7 @@
 						</ul></li>
 					<c:if test="${sessionScope.role == 'ADMIN'}">
 						<li><a
-							href="${pageContext.request.contextPath}/controller?command=find_subscriptions_by_status&status=course_added">${subscriptions}</a></li>
+							href="${pageContext.request.contextPath}/controller?command=find_subscriptions_by_status&status=added_course">${subscriptions}</a></li>
 
 						</li>
 					</c:if>

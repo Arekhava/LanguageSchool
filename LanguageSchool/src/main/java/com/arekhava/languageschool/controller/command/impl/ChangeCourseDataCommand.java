@@ -1,4 +1,4 @@
-package com.arekhava.languageschool.controller.command.impl;
+   package com.arekhava.languageschool.controller.command.impl;
 
 import java.util.Map;
 
@@ -59,5 +59,4 @@ public class ChangeCourseDataCommand implements Command {
 		}
 		return router;
 	}
-
 }

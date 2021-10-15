@@ -7,16 +7,16 @@
 	margin: 50px auto 0;
 }
 
-.orders_table {
+.subscriptions_table {
 	width: 100%;
 }
 
-.orders_table thead {
+.subscriptions_table thead {
 	color: #fff;
 }
 
-.cancel_order_form input, .process_order_form input, .order_info input,
-	.order_info button {
+.cancel_subscription_form input, .process_subscription_form input, .subscription_info input,
+	.subscription_info button {
 	width: 100%;
 }
 

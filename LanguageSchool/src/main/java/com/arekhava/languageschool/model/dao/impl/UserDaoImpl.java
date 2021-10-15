@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.arekhava.languageschool.entity.Course;
 import com.arekhava.languageschool.entity.User;
 import com.arekhava.languageschool.entity.UserStatus;
 import com.arekhava.languageschool.model.dao.DaoException;
@@ -168,4 +169,6 @@ public class UserDaoImpl implements UserDao {
 		}
 		return users;
 	}
+
+	
 }

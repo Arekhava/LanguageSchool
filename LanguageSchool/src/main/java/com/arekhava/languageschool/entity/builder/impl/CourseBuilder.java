@@ -44,7 +44,7 @@ public class CourseBuilder implements EntityBuilder<Course> {
 		if (languageId!= null) {
 			course.setLanguageId(Long.valueOf(languageId));
 		}
-		course.setCourseName(courseInfo.get(LANGUAGE_NAME));
+		course.setCourseName(courseInfo.get(COURSE_NAME));
 		course.setImageName(courseInfo.get(IMAGE_NAME));
 		Date sqlDate = null;
 		try {

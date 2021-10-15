@@ -7,9 +7,15 @@ package com.arekhava.languageschool.entity;
  */
 public enum SubscriptionStatus {
 	LIKED, 
-	COURSE_ADDED, 
-	COURSE_ACCEPTED, 
-	ACCEPTED_AND_PAID, 
-	COURSE_COMPLITED, 
-	CANCELED
+	ADDED_COURSE,
+	ACCEPTED_TO_COURSE,  
+	ACTIVE_COURSE, 
+	COMPLETED_COURSE, 
+	NOT_ACCEPTED_TO_COURSE,
 }
+//BASKET, 
+//PLACED, 
+//ACCEPTED, 
+//READY, 
+//DELIVERED, 
+//CANCELED

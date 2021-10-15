@@ -24,8 +24,11 @@ public final class ColumnName {
 	public static final String NEXT_START = "next_start";
 	public static final String COURSE_ID = "id";
 	public static final String LANGUAGE_ID = "language_id";
+	//public static final String COURSES_NAME = "name";
 	public static final String COURSE_NAME = "name";
+	//public static final String COURSES_PRICE = "price";
 	public static final String COURSE_PRICE = "price";
+	public static final String COURSES_ID = "id";
 	//public static final String IMAGE_NAME = "image_name";   
 	
 	public static final String SUBSCRIPTIONS_ID = "id";

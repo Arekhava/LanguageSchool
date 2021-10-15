@@ -27,13 +27,14 @@ import com.arekhava.languageschool.model.pool.ConnectionPoolException;
  * @see SubscriptionDao
  */
 public class SubscriptionDaoImpl implements SubscriptionDao {
-		private static final String SQL_INSERT_SUBSCRIPTION = "INSERT INTO SQL_INSERT_SUBSCRIPTIONS (USER_ID, STATUS) VALUES (?, 'LIKED')";
-		private static final String SQL_UPDATE_SUBSCRIPTION = "UPDATE SUBSCRIPTIONS SET DATE_TIME=?, STATUS=?, COST=?, PAYMENTMETHOD_METHOD=? WHERE ID=?";
-		private static final String SQL_UPDATE_SUBSCRIPTION_STATUS = "UPDATE SUBSCRIPTIONS SET STATUS=? WHERE ID=? AND STATUS=?";
+		private static final String SQL_INSERT_SUBSCRIPTION = "INSERT INTO SUBSCRIPTIONS (USER_ID, STATUS) VALUES (?, 'LIKED')";
+		private static final String SQL_UPDATE_SUBSCRIPTION = "UPDATE SUBSCRIPTIONS SET DATE_TIME=?, STATUS=?, COST=?, PAYMENT_METHOD=? WHERE ID=?";
+		private static final String SQL_UPDATE_SUBSCRIPTION_STATUS = "UPDATE SUBSCRIPTIONS SET STATUS=? WHERE SUBSCRIPTIONS.ID=? AND SUBSCRIPTIONS.STATUS=?";
 		private static final String SQL_SELECT_SUBSCRIPTION_LIKED_BY_USER_ID = "SELECT ID FROM SUBSCRIPTIONS WHERE USER_ID=? AND STATUS='ADDED'";
-		private static final String SQL_SELECT_SUBSCRIPTIONS_BY_ID = "SELECT ID, USER_ID, DATE_TIME, STATUS, PAYMENT_METHOD, COST FROM SUBSCRIPTIONSS WHERE ID=?";
-		private static final String SQL_SELECT_SUBSCRIPTIONS_BY_LOGIN = "SELECT SUBSCRIPTIONS.ID, USER_ID, DATE_TIME, SUBSCRIPTIONS.STATUS, PAYMENT_METHOD FROM ORDERS JOIN USERS ON ORDERS.USER_ID=USERS.ID WHERE LOGIN=? AND SUBSCRIPTIONS.STATUS!='LIKED'";
-		private static final String SQL_SELECT_SUBSCRIPTIONS_BY_STATUS = "SELECT ID, USER_ID, DATE_TIME, STATUS, PAYMENT_METHOD, COST SUBSCRIPTIONS WHERE STATUS=?";
+		private static final String SQL_SELECT_SUBSCRIPTIONS_BY_ID = "SELECT ID, USER_ID, DATE_TIME, STATUS, PAYMENT_METHOD, COST FROM SUBSCRIPTIONS WHERE ID=?";
+		private static final String SQL_SELECT_SUBSCRIPTIONS_BY_LOGIN = "SELECT SUBSCRIPTIONS.ID, USER_ID, DATE_TIME, SUBSCRIPTIONS.STATUS, SUBSCRIPTIONS.PAYMENT_METHOD, SUBSCRIPTIONS.COST FROM SUBSCRIPTIONS JOIN USERS ON SUBSCRIPTIONS.USER_ID=USERS.ID WHERE LOGIN=? AND SUBSCRIPTIONS.STATUS!='LIKED'";
+		private static final String SQL_SELECT_SUBSCRIPTIONS_BY_STATUS = "SELECT ID, USER_ID, DATE_TIME, STATUS, PAYMENT_METHOD, COST FROM SUBSCRIPTIONS WHERE STATUS=?";
+		private static final String SQL_SELECT_SUBSCRIPTIONS = "SELECT ID, USER_ID, DATE_TIME, STATUS, PAYMENT_METHOD, COST FROM SUBSCRIPTIONS";
 
 		@Override
 		public void create(Subscription subscription) throws DaoException {
@@ -59,17 +60,16 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 					PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_SUBSCRIPTION)) {
 				statement.setTimestamp(1, Timestamp.valueOf(subscription.getDateTime()));
 				statement.setString(2, String.valueOf(subscription.getSubscriptionStatus()));
-				statement.setString(3, String.valueOf(subscription.getPaymentMethod()));
-				statement.setBigDecimal(4, subscription.getCost());
-				statement.setString(5, String.valueOf(subscription.getPaymentMethod()));
-				statement.setLong(6, subscription.getSubscriptionId());
+				statement.setBigDecimal(3, subscription.getCost());
+				statement.setString(4, String.valueOf(subscription.getPaymentMethod()));
+				statement.setLong(5, subscription.getSubscriptionId());
 				numberUpdatedRows = statement.executeUpdate();
 			} catch (ConnectionPoolException | SQLException e) {
 				throw new DaoException("database error", e);
 			}
 			return (numberUpdatedRows != 0);
 		}
-
+		
 		@Override
 		public boolean updateStatus(String subscriptionId, SubscriptionStatus statusFrom, SubscriptionStatus statusTo) throws DaoException {
 			int numberUpdatedRows;
@@ -159,7 +159,18 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 
 	@Override
 	public List<Subscription> findAll() throws DaoException {
-		throw new UnsupportedOperationException("operation not supported for class " + this.getClass().getName());
+		List<Subscription> subscriptions = new ArrayList<>();
+		try (Connection connection = ConnectionPool.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement(SQL_SELECT_SUBSCRIPTIONS)) {
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				Subscription subscription = DaoEntityBuilder.buildSubscription(resultSet);
+				subscriptions.add(subscription);
+			}
+		} catch (ConnectionPoolException | SQLException e) {
+			throw new DaoException("database error", e);
+		}
+		return subscriptions;
 	}
 
 }

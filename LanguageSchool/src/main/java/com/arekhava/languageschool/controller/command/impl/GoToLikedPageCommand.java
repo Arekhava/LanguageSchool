@@ -15,6 +15,7 @@ import com.arekhava.languageschool.controller.command.Router;
 import com.arekhava.languageschool.controller.command.Router.RouteType;
 import com.arekhava.languageschool.entity.Subscription;
 import com.arekhava.languageschool.entity.UserRole;
+import com.arekhava.languageschool.entity.PaymentMethod;
 import com.arekhava.languageschool.model.service.ServiceException;
 import com.arekhava.languageschool.model.service.ServiceFactory;
 import com.arekhava.languageschool.model.service.SubscriptionService;
@@ -52,6 +53,7 @@ public class GoToLikedPageCommand implements Command {
 				session.setAttribute(ParameterAndAttribute.SUBSCRIPTION_LIKED_ID, subscriptionLiked.getSubscriptionId());
 				session.setAttribute(ParameterAndAttribute.CURRENT_PAGE, PagePath.GO_TO_LIKED_PAGE);
 				request.setAttribute(ParameterAndAttribute.SUBSCRIPTION, subscriptionLiked);
+				request.setAttribute(ParameterAndAttribute.PAYMENT_METHOD_LIST, PaymentMethod.values());
 				router = new Router(PagePath.LIKED, RouteType.FORWARD);
 			} else {
 				session.setAttribute(ParameterAndAttribute.ERROR_MESSAGE,

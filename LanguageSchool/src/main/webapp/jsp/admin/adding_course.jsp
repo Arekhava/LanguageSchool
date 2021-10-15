@@ -35,7 +35,7 @@
 		<input type="hidden" name="command" value="add_course_to_catalog"/>
 		<div>
 			<label for="language"><fmt:message key="local.language"/>:</label>
-			<select size="1" id="language" name="languageId" required>
+			<select size="1" id="language" name="languageId" required placeholder="${language_id}">
 								<c:forEach var="language" items="${sessionScope.languages}">
 									<option value="${language.languageId}"><fmt:message key="local.language.${language.languageName}"/></option>
 								</c:forEach>
@@ -48,12 +48,12 @@
 			<input type="text" name="price" required placeholder="${price}" pattern="\d{1,8}(\.\d{2})?"/> $
 		</div>
 		<div>
-					<label>${next_start}:</label> <input type="date" name="nextStart"
-						required placeholder="${next_start}" maxlength="45" />
-				</div>
+			<label>${nextStart}:</label> 
+			<input type="date" name="nextStart" required placeholder="${next_start}" maxlength="45" />
+		 </div>
 		<div>
 			<label>${upload_image}:</label>
-			<input type="file" name="file" value="" height="150">
+			<input type="text" name="imageName" required placeholder="${image_name}" maxlength="45">
 		</div>
 		<input type="submit" value="${add_to_catalog}">
 	</form>

@@ -29,7 +29,7 @@ import com.arekhava.languageschool.util.UserControl;
  * @author N
  * @see Command
  */
-public class FindSubscriptionsByStatusCommand  implements Command {
+public class FindSubscriptionsByStatusCommand implements Command {
 	private static final Logger logger = LogManager.getLogger();
 
 	@Override
@@ -58,4 +58,6 @@ public class FindSubscriptionsByStatusCommand  implements Command {
 		}
 		return router;
 	}
+
+	
 }

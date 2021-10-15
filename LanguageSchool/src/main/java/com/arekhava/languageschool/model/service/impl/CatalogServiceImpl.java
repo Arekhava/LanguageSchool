@@ -1,18 +1,23 @@
 package com.arekhava.languageschool.model.service.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.arekhava.languageschool.controller.command.ParameterAndAttribute;
 import com.arekhava.languageschool.entity.Course;
 import com.arekhava.languageschool.entity.Language;
+import com.arekhava.languageschool.entity.User;
 import com.arekhava.languageschool.entity.builder.impl.CourseBuilder;
+import com.arekhava.languageschool.entity.builder.impl.UserBuilder;
 import com.arekhava.languageschool.entity.comparator.CourseComparator;
 import com.arekhava.languageschool.model.dao.CourseDao;
 import com.arekhava.languageschool.model.dao.DaoException;
@@ -24,7 +29,9 @@ import com.arekhava.languageschool.model.service.InvalidDataException;
 import com.arekhava.languageschool.model.service.ServiceException;
 import com.arekhava.languageschool.model.service.validator.CourseInfoValidator;
 import com.arekhava.languageschool.model.service.validator.IdValidator;
+import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
 import com.arekhava.languageschool.util.MessageKey;
+import com.arekhava.languageschool.util.PasswordEncryption;
 
 
 /**
@@ -56,9 +63,6 @@ public class CatalogServiceImpl implements CatalogService {
 			throw new ServiceException("course creation error", e);
 		}
 	}
-
-		
-
 
 	@Override
 	public boolean changeCourseData(Map<String, String> courseInfo)  throws ServiceException, InvalidDataException {

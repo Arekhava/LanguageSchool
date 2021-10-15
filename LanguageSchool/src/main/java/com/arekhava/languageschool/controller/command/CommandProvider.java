@@ -1,5 +1,7 @@
 package com.arekhava.languageschool.controller.command;
 
+import static com.arekhava.languageschool.controller.command.CommandType.*;
+
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -37,7 +39,6 @@ import com.arekhava.languageschool.controller.command.impl.SignInCommand;
 import com.arekhava.languageschool.controller.command.impl.SignOutCommand;
 import com.arekhava.languageschool.controller.command.impl.SignUpCommand;
 import com.arekhava.languageschool.controller.command.impl.UnblockUserCommand;
-import static com.arekhava.languageschool.controller.command.CommandType.*;
 
 /**
  * CommandProvider is used for defining command
@@ -61,7 +62,6 @@ public final class CommandProvider {
 		commands.put(DEFAULT, new DefaultCommand());
 		commands.put(EN, new ChangeLocaleCommand());
 		commands.put(FIND_SUBSCRIPTION_BY_ID, new FindSubscriptionByIdCommand());
-		commands.put(FIND_SUBSCRIPTIONS_BY_STATUS, new FindSubscriptionsByStatusCommand());
 		commands.put(FIND_COURSES_BY_NAME, new FindCoursesByNameCommand());
 		commands.put(FIND_USER_BY_ID, new FindUserByIdCommand());
 		commands.put(FIND_USER_BY_LOGIN, new FindUserByLoginCommand());
@@ -81,6 +81,8 @@ public final class CommandProvider {
 		commands.put(SIGN_OUT, new SignOutCommand());
 		commands.put(UNBLOCK_USER, new UnblockUserCommand());
 		commands.put(SIGN_UP, new SignUpCommand());
+		commands.put(FIND_SUBSCRIPTIONS_BY_STATUS, new FindSubscriptionsByStatusCommand());
+		
 	}
 
 	private CommandProvider() {

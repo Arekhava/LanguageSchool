@@ -5,6 +5,7 @@ package com.arekhava.languageschool.entity;
  * 
  */
 public enum PaymentMethod { 
-	CARD,
-	ERIP;
+	
+	ERIP,
+	ONLINE;
 }

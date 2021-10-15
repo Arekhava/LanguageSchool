@@ -32,6 +32,7 @@ import com.arekhava.languageschool.util.PriceCalculator;
 
 
 
+
 /**
  * The service is responsible for operations with the subscriptions
  * 
@@ -58,8 +59,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 			}
 			SubscriptionCourseConnection subscriptionCourseConnection = new SubscriptionCourseConnection(courseLikedId,
 					Long.valueOf(courseId));
+			
+			subscriptionCourseConnectionDao.create(subscriptionCourseConnection);
 	
 			subscriptionLiked = new Subscription(courseLikedId, userId);
+
 		} catch (DaoException e) {
 			throw new ServiceException("course adding error", e);
 		}
@@ -73,12 +77,17 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	 * @return {@link Long}
 	 * @throws DaoException
 	 */
+	//pass information about course - at least course id
 	private Long takeCourseToLikedId(Long userId) throws DaoException {
 		Long courseLikedId;
+		// these are not courses id, these are subscriptions ids
+		//there is need to pass also course id and check for courseId = ?
+		//join with other table
 		Optional<Long> courseLikedIdOptional = subscriptionDao.findSubscriptionAddedId(userId);
 		if (courseLikedIdOptional.isPresent()) {
 			courseLikedId = courseLikedIdOptional.get();
 		} else {
+			// create record also in subscriptions to courses table
 			Subscription subscription = new Subscription(userId);
 			subscriptionDao.create(subscription);
 			courseLikedId = subscription.getSubscriptionId();
@@ -134,14 +143,13 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		SubscriptionStatus subscriptionFrom = SubscriptionStatus.valueOf(subscriptionStatus.toUpperCase());
 		SubscriptionStatus statusTo;
 		switch (subscriptionFrom) {
-		case COURSE_ADDED:
-			statusTo = SubscriptionStatus.COURSE_ACCEPTED;
+		case ADDED_COURSE:
+			statusTo = SubscriptionStatus.ACCEPTED_TO_COURSE;
 			break;
-		case COURSE_ACCEPTED:
-			statusTo = SubscriptionStatus.ACCEPTED_AND_PAID;
-			break;
-		case ACCEPTED_AND_PAID:
-			statusTo = SubscriptionStatus.COURSE_COMPLITED;
+		case ACCEPTED_TO_COURSE:
+			statusTo = SubscriptionStatus.ACTIVE_COURSE;
+		case ACTIVE_COURSE:
+			statusTo = SubscriptionStatus.COMPLETED_COURSE;	
 			break;
 		default:
 			return false;
@@ -154,7 +162,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		}
 		return subscriptionProcessed;
 	}
-
+	
 	@Override
 	public Optional<Subscription> takeSubscriptionLiked(Long userId, Long SubscriptionLikedId) throws ServiceException {
 		if (userId == null) {
@@ -232,9 +240,27 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 				List<Course> courses = subscriptionCourseConnectionDao.findBySubscriptionId(subscription.getSubscriptionId());
 					subscription.setCourses(courses);
 					if (SubscriptionStatus.valueOf(subscriptionStatus.toUpperCase()) == SubscriptionStatus.LIKED) {
-						subscription.setCost(PriceCalculator.calculateTotalCost(courses));
+						subscription.setCost(PriceCalculator.calculateTotalCost(courses));//fixme
 					}
 				}
+			}
+		} catch (DaoException e) {
+			throw new ServiceException("subscriptions search error", e);
+		}
+		return subscriptions;
+	}
+	
+	@Override
+	public List<Subscription> findAllSubscriptions() throws ServiceException {
+		List<Subscription> subscriptions;
+		try {
+			subscriptions = subscriptionDao.findAll();
+			if (!subscriptions.isEmpty()) {
+				/*Collections.reverse(subscriptions);
+				for (Subscription subscription : subscriptions) {
+					List<Course> courses = subscriptionCourseConnectionDao.findBySubscriptionId(subscription.getSubscriptionId());
+					subscription.setCourses(courses);
+				}*/
 			}
 		} catch (DaoException e) {
 			throw new ServiceException("subscriptions search error", e);
@@ -249,13 +275,13 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		return false;
 	}
 	SubscriptionStatus statusFrom = SubscriptionStatus.valueOf(subscriptionStatus.toUpperCase());
-	if ((role == UserRole.STUDENT && statusFrom != SubscriptionStatus.COURSE_ADDED)
-			|| (role == UserRole.ADMIN && statusFrom == SubscriptionStatus.COURSE_COMPLITED)) {
+	if ((role == UserRole.STUDENT && statusFrom != SubscriptionStatus.ACCEPTED_TO_COURSE)
+			|| (role == UserRole.ADMIN && statusFrom == SubscriptionStatus.NOT_ACCEPTED_TO_COURSE)) {
 		return false;
 	}
 	boolean subscriptionCanceled;
 	try {
-		subscriptionCanceled = subscriptionDao.updateStatus(subscriptionId, statusFrom, SubscriptionStatus.CANCELED);
+		subscriptionCanceled = subscriptionDao.updateStatus(subscriptionId, statusFrom, SubscriptionStatus.NOT_ACCEPTED_TO_COURSE);
 		if (subscriptionCanceled) {
 			List<Course> courses = subscriptionCourseConnectionDao.findBySubscriptionId(Long.valueOf(subscriptionId));
 			

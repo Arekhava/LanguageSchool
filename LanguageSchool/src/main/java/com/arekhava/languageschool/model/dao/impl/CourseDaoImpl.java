@@ -23,10 +23,10 @@ import com.arekhava.languageschool.model.pool.ConnectionPoolException;
  * @see CourseDao
  */
 public class CourseDaoImpl implements CourseDao{
-	private static final String SQL_INSERT_COURSE = "INSERT INTO COURSES (ID, NAME, PRICE, IMAGE_NAME, LANGUAGE_ID,  NEXT_START ) VALUES (?,?,?,?,?)";
+	private static final String SQL_INSERT_COURSE = "INSERT INTO COURSES (LANGUAGE_ID, NAME,  IMAGE_NAME, PRICE, NEXT_START ) VALUES (?, ?, ?, ?, ?)";
 	private static final String SQL_UPDATE_COURSE = "UPDATE COURSES SET NAME=?, PRICE=?, IMAGE_NAME=?, NEXT_START=? WHERE ID=?";
 	private static final String SQL_SELECT_COURSE_BY_LANGUAGE = "SELECT ID, NAME, PRICE, IMAGE_NAME, NEXT_START FROM COURSES WHERE LANGUAGE_ID=?";
-	private static final String SQL_SELECT_COURSE_BY_NAME = "SELECT ID, NAME, PRICE, LANGUAGE_ID, IMAGE_NAME, NEXT_START WHERE NAME LIKE ?";
+	private static final String SQL_SELECT_COURSE_BY_NAME = "SELECT ID, NAME, PRICE, LANGUAGE_ID, IMAGE_NAME, NEXT_START FROM COURSES WHERE NAME LIKE ?";
 	private static final String SQL_SELECT_COURSE_BY_ID = "SELECT ID, LANGUAGE_ID, NAME, IMAGE_NAME, PRICE, NEXT_START FROM COURSES WHERE ID=?";
 	private static final String ZERO_OR_MORE_CHARACTERS = "%";
 
@@ -38,8 +38,8 @@ public class CourseDaoImpl implements CourseDao{
 			statement.setLong(1, course.getLanguageId());
 			statement.setString(2, course.getCourseName());
 			statement.setString(3, course.getImageName());
-			statement.setDate(4, course.getNextStart());
-			statement.setBigDecimal(5, course.getPrice());
+			statement.setBigDecimal(4, course.getPrice());
+			statement.setDate(5, course.getNextStart());		
 			statement.executeUpdate();
 		} catch (ConnectionPoolException | SQLException e) {
 			throw new DaoException("database error", e);
@@ -54,7 +54,9 @@ public class CourseDaoImpl implements CourseDao{
 				PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_COURSE)) {
 			statement.setString(1, course.getCourseName());
 			statement.setBigDecimal(2, course.getPrice());
-			statement.setLong(3, course.getCourseId());
+			statement.setString(3, course.getImageName());
+			statement.setDate(4, course.getNextStart());
+			statement.setLong(5, course.getCourseId());		
 			numberUpdatedRows = statement.executeUpdate();
 		} catch (ConnectionPoolException | SQLException e) {
 			throw new DaoException("database error", e);

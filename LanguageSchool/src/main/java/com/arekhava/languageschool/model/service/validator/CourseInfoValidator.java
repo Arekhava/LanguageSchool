@@ -18,8 +18,8 @@ import com.arekhava.languageschool.util.XssProtectionUtil;
  */
 public final class CourseInfoValidator {
 	private static final String PRICE_PATTERN = "^[1-9]\\d{0,8}(\\.\\d{2})?$";
-	private static final String IMAGE_NAME_PATTERN = "^.{1,40}\\.jpg$";
-	private static final String NAME_PATTERN = "^.{1,45}$";
+	private static final String IMAGE_NAME_PATTERN = "^.{1,40}\\.jpg";
+	private static final String NAME_PATTERN = "^.{1,45}";
 	
 
 	private CourseInfoValidator() {
@@ -42,11 +42,11 @@ public final class CourseInfoValidator {
 		if (!isValidPrice(courseInfo.get(ParameterAndAttribute.PRICE))) {
 			errorMessageList.add(MessageKey.ERROR_INCORRECT_PRICE_MESSAGE);
 		}
-		if (!isValidName(courseInfo.get(ParameterAndAttribute.LANGUAGE_NAME))) {
+		if (!isValidName(courseInfo.get(ParameterAndAttribute.COURSE_NAME))) {
 			errorMessageList.add(MessageKey.ERROR_INCORRECT_COURSE_NAME_MESSAGE);
 		} else {
-			courseInfo.put(ParameterAndAttribute.LANGUAGE_NAME,
-					XssProtectionUtil.correctText(courseInfo.get(ParameterAndAttribute.LANGUAGE_NAME)));
+			courseInfo.put(ParameterAndAttribute.COURSE_NAME,
+					XssProtectionUtil.correctText(courseInfo.get(ParameterAndAttribute.COURSE_NAME)));
 		}
 		return errorMessageList;
 	}
@@ -60,26 +60,6 @@ public final class CourseInfoValidator {
 	public static boolean isValidPrice(String price) {
 		return (price != null) ? price.matches(PRICE_PATTERN) : false;
 	}
-	/*
-		*//**
-			 * Checks if image name is valid
-			 * 
-			 * @param imageName {@link String}
-			 * @return boolean true if image name is valid, else false
-			 *//*
-				 * public static boolean isValidImageName(String imageName) { return (imageName
-				 * != null) ? imageName.matches(IMAGE_NAME_PATTERN) : false; }
-				 */
-
-	/**
-	 * Checks if name is valid
-	 * 
-	 * @param name {@link String}
-	 * @return boolean true if name is valid, else false
-	 */
-	public static boolean isValidName(String name) {
-		return (name != null) ? name.matches(NAME_PATTERN) : false;
-	}
 	/**
 	 * Checks if image name is valid
 	 * 
@@ -90,6 +70,13 @@ public final class CourseInfoValidator {
 		return (imageName != null) ? imageName.matches(IMAGE_NAME_PATTERN) : false;
 	}
 
-
-	
+	/**
+	 * Checks if name is valid
+	 * 
+	 * @param name {@link String}
+	 * @return boolean true if name is valid, else false
+	 */
+	public static boolean isValidName(String name) {
+		return (name != null) ? name.matches(NAME_PATTERN) : false;
+	}	
 }

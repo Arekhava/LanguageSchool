@@ -137,13 +137,13 @@
 						</c:if>
 						<c:if test="${sessionScope.role == 'ADMIN'}">
 						<button id="button_edit_${course.courseId}" onclick="openEditForm('form_edit_${course.courseId}', 'button_edit_${course.courseId}')">${edit}</button>
-						<form class="form_edit" id="form_edit_${course.courseId}" action="${pageContext.request.contextPath}/controller" method="post" >
+						<form class="form_edit" id="form_edit_${course.courseId}" action="${pageContext.request.contextPath}/controller?imageName=${course.imageName}" method="post" >
                             <span>${edit}</span>
 							<input type="hidden" name="command" value="change_course_data"/>
                             <input type="hidden" name="courseId" value="${course.courseId}"/>
                             <div><label>${name}:<input type="text" name="courseName" value="${course.courseName}"/></label></div>
                             <div><label>${price}:<input type="text" name="price" value="${course.price}"/>$</label></div>
-                            <div><label>${nextStart}:<input type="date" name="nextStart" value="{course.nextStart}"/>$</label></div>
+                            <div><label>${nextStart}:<input type="date" name="nextStart" value="${course.nextStart}"/>$</label></div>
                             <input type="submit" onclick="closeEditForm('form_edit_${course.courseId}', 'button_edit_${course.courseId}')" value="${save}"/>
                         </form>
 						</c:if>

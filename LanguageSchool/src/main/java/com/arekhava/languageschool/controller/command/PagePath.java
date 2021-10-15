@@ -11,10 +11,9 @@ public final class PagePath {
 	public static final String ERROR = "jsp/error.jsp";
 	public static final String MAIN = "jsp/main.jsp";
 	public static final String GO_TO_PROFILE_PAGE = "controller?command=go_to_profile_page";
-	public static final String GO_TO_SUBSCRIPTION_PAGE = "controller?command=go_to_subscription_page";
+	public static final String GO_TO_SUBSCRIPTIONS_PAGE = "controller?command=go_to_subscriptions_page";
 	public static final String REGISTRATION = "jsp/registration.jsp";
 	public static final String COURSES = "jsp/admin/courses.jsp";
-	public static final String GO_TO_SUBSCRIPTIONS_PAGE = "controller?command=go_to_subcription_page";
 	public static final String SUBSCRIPTIONS = "jsp/subscriptions.jsp";
 	public static final String FIND_COURSES_BY_NAME = "controller?command=find_course_by_name";
 	public static final String FIND_USER_BY_EMAIL = "controller?command=find_user_by_email";
@@ -28,12 +27,12 @@ public final class PagePath {
 	public static final String LIKED = "jsp/student/liked.jsp";
 	public static final String FIND_USER_SUBSCRIPTIONS = "controller?command=find_user_subscriptions&login=";
 	public static final String FIND_SUBSCRIPTION_BY_ID = "controller?command=find_subscription_by_id&subscriptionId=";
-	public static final String FIND_SUBSCRIPTIONS_BY_STATUS = "controller?command=find_subscriptions_by_status&status=";
 	public static final String LOGIN = "jsp/login.jsp";
 	public static final String FIND_USER_BY_ID = "controller?command=find_user_by_id&userId=";
 	public static final String FIND_USER_BY_LOGIN = "controller?command=find_user_by_login&login=";
+	public static final String FIND_SUBSCRIPTIONS_BY_STATUS = "controller?command=find_subscriptions_by_status&status=";
 
-	
+
 	
 	
 }
