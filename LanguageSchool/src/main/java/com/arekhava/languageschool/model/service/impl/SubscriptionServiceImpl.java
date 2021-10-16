@@ -30,6 +30,10 @@ import com.arekhava.languageschool.model.service.validator.SubscriptionInfoValid
 import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
 import com.arekhava.languageschool.util.PriceCalculator;
 
+import by.epam.store.entity.OrderStatus;
+import by.epam.store.model.service.validator.OrderInfoValidator;
+
+
 
 
 
@@ -148,6 +152,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 			break;
 		case ACCEPTED_TO_COURSE:
 			statusTo = SubscriptionStatus.ACTIVE_COURSE;
+			break;
 		case ACTIVE_COURSE:
 			statusTo = SubscriptionStatus.COMPLETED_COURSE;	
 			break;
@@ -162,7 +167,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		}
 		return subscriptionProcessed;
 	}
-	
+
 	@Override
 	public Optional<Subscription> takeSubscriptionLiked(Long userId, Long SubscriptionLikedId) throws ServiceException {
 		if (userId == null) {
@@ -275,7 +280,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		return false;
 	}
 	SubscriptionStatus statusFrom = SubscriptionStatus.valueOf(subscriptionStatus.toUpperCase());
-	if ((role == UserRole.STUDENT && statusFrom != SubscriptionStatus.ACCEPTED_TO_COURSE)
+	if ((role == UserRole.STUDENT && statusFrom != SubscriptionStatus.ADDED_COURSE)
 			|| (role == UserRole.ADMIN && statusFrom == SubscriptionStatus.NOT_ACCEPTED_TO_COURSE)) {
 		return false;
 	}
@@ -293,5 +298,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 }
 	
 	}
+
+
 
 

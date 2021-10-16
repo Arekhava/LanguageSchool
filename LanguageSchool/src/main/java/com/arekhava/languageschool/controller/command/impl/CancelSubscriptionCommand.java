@@ -19,8 +19,9 @@ import com.arekhava.languageschool.util.MessageKey;
 import com.arekhava.languageschool.util.UserControl;
 
 
+
 /**
-* The command is responsible for subscription cancelation
+* The command is responsible for subscription cancellation
 * * @author N
 * @see Command
 */
@@ -48,10 +49,12 @@ import com.arekhava.languageschool.util.UserControl;
 				}
 				String page = (String) session.getAttribute(ParameterAndAttribute.CURRENT_PAGE);
 				router = new Router(page, RouteType.REDIRECT);
+			
 			} catch (ServiceException e) {
 				logger.error("subscription cancelation error", e);
 				router = new Router(PagePath.ERROR, RouteType.REDIRECT);
 			}
 			return router;
 		}
+		
 	}

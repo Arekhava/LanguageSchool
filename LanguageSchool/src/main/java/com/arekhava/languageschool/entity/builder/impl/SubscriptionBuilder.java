@@ -1,5 +1,9 @@
 package com.arekhava.languageschool.entity.builder.impl;
 
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.COST;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.PAYMENT_METHOD;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.SUBSCRIPTION_LIKED_ID;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -8,8 +12,6 @@ import com.arekhava.languageschool.entity.PaymentMethod;
 import com.arekhava.languageschool.entity.Subscription;
 import com.arekhava.languageschool.entity.SubscriptionStatus;
 import com.arekhava.languageschool.entity.builder.EntityBuilder;
-
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.*;
 
 /**
  * The builder is responsible for building subscription

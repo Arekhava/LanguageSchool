@@ -48,7 +48,16 @@
 		<c:if test="${sessionScope.role == 'ADMIN'}">
 		<div class="filters">
 		<p>${search_subscriptions_by}:</p>
-
+		<form action="${pageContext.request.contextPath}/controller" method="get">
+			<label>${status}:</label>
+			<input type="hidden" name="command" value="find_subscriptions_by_status"/>
+			<select size="1" id="status" name="status" required >
+				<c:forEach var="subscriptionStatus" items="${requestScope.subscriptionStatusList}">
+					<option value="${subscriptionStatus}"><fmt:message key="local.subscription_status.${subscriptionStatus}" /></option>
+				</c:forEach>
+			</select>
+			<input type="submit" value="${search}"/>
+		</form>
 		<form action="${pageContext.request.contextPath}/controller" method="get">
 			<label>${subscription_number}:</label>
 			<input type="hidden" name="command" value="find_subscription_by_id"/>
@@ -110,6 +119,8 @@
 				</c:if>
 				</form>
 			</c:if>
+	
+				
 				<form class="cancel_subscription_form" action="${pageContext.request.contextPath}/controller" method="post">
 					<input type="hidden" name="command" value="cancel_subscription"/>
 					<input type="hidden" name="subscriptionId" value="${subscription.subscriptionId}"/>
@@ -126,6 +137,7 @@
 					<c:if test="${sessionScope.role == 'ADMIN' && subscription.subscriptionStatus == 'NOT_ACCEPTED_TO_COURSE'}">
 					<input type="submit" value="${cancel}" disabled/>
 					</c:if>
+					
 				</form>
 			</td>
 			<td valign="center" align="center" class="subscription_info">

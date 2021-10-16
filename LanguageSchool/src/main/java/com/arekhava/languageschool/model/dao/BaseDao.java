@@ -3,7 +3,6 @@ package com.arekhava.languageschool.model.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.arekhava.languageschool.entity.Course;
 import com.arekhava.languageschool.model.pool.ConnectionPoolException;
 
 /**

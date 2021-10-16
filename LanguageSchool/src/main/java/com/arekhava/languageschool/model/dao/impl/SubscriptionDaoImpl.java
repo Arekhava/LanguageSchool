@@ -18,6 +18,8 @@ import com.arekhava.languageschool.model.dao.SubscriptionDao;
 import com.arekhava.languageschool.model.pool.ConnectionPool;
 import com.arekhava.languageschool.model.pool.ConnectionPoolException;
 
+import by.epam.store.entity.OrderStatus;
+
  
 
 /**
@@ -84,7 +86,7 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 			}
 			return (numberUpdatedRows != 0);
 		}
-
+	
 		@Override
 		public Optional<Long> findSubscriptionAddedId(Long userId) throws DaoException {
 			Optional<Long> subscriptionLikedIdOptional;

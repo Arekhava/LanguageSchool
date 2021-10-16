@@ -2,7 +2,6 @@ package com.arekhava.languageschool.tag;
 
 import java.io.IOException;
 
-
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;

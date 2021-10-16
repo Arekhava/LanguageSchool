@@ -1,6 +1,37 @@
 package com.arekhava.languageschool.controller.command;
 
-import static com.arekhava.languageschool.controller.command.CommandType.*;
+import static com.arekhava.languageschool.controller.command.CommandType.ADD_COURSE_TO_CATALOG;
+import static com.arekhava.languageschool.controller.command.CommandType.ADD_COURSE_TO_LIKED;
+import static com.arekhava.languageschool.controller.command.CommandType.BLOCK_USER;
+import static com.arekhava.languageschool.controller.command.CommandType.CANCEL_SUBSCRIPTION;
+import static com.arekhava.languageschool.controller.command.CommandType.CHANGE_COURSE_DATA;
+import static com.arekhava.languageschool.controller.command.CommandType.CHANGE_PASSWORD;
+import static com.arekhava.languageschool.controller.command.CommandType.CHANGE_USER_DATA;
+import static com.arekhava.languageschool.controller.command.CommandType.CHECKOUT;
+import static com.arekhava.languageschool.controller.command.CommandType.CONFIRM_REGISTRATION;
+import static com.arekhava.languageschool.controller.command.CommandType.DEFAULT;
+import static com.arekhava.languageschool.controller.command.CommandType.EN;
+import static com.arekhava.languageschool.controller.command.CommandType.FIND_COURSES_BY_NAME;
+import static com.arekhava.languageschool.controller.command.CommandType.FIND_SUBSCRIPTIONS_BY_STATUS;
+import static com.arekhava.languageschool.controller.command.CommandType.FIND_SUBSCRIPTION_BY_ID;
+import static com.arekhava.languageschool.controller.command.CommandType.FIND_USER_BY_ID;
+import static com.arekhava.languageschool.controller.command.CommandType.FIND_USER_BY_LOGIN;
+import static com.arekhava.languageschool.controller.command.CommandType.FIND_USER_SUBSCRIPTIONS;
+import static com.arekhava.languageschool.controller.command.CommandType.FORGOT_PASSWORD;
+import static com.arekhava.languageschool.controller.command.CommandType.GO_TO_LIKED_PAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.GO_TO_MAIN_PAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.GO_TO_PROFILE_PAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.GO_TO_STUDENTS_PAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.GO_TO_SUBSCRIPTIONS_PAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.PROCESS_SUBSCRIPTION;
+import static com.arekhava.languageschool.controller.command.CommandType.REMOVE_COURSE_FROM_LIKED;
+import static com.arekhava.languageschool.controller.command.CommandType.RU;
+import static com.arekhava.languageschool.controller.command.CommandType.SEND_MESSAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.SHOW_COURSES_FROM_LANGUAGE;
+import static com.arekhava.languageschool.controller.command.CommandType.SIGN_IN;
+import static com.arekhava.languageschool.controller.command.CommandType.SIGN_OUT;
+import static com.arekhava.languageschool.controller.command.CommandType.SIGN_UP;
+import static com.arekhava.languageschool.controller.command.CommandType.UNBLOCK_USER;
 
 import java.util.EnumMap;
 import java.util.Map;

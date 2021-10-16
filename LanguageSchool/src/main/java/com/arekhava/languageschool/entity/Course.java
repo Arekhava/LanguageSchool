@@ -3,7 +3,6 @@ package com.arekhava.languageschool.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.LocalDate;
 
 
 /**

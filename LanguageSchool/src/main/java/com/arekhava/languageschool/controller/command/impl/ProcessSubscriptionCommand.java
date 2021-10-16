@@ -18,6 +18,8 @@ import com.arekhava.languageschool.model.service.SubscriptionService;
 import com.arekhava.languageschool.util.MessageKey;
 import com.arekhava.languageschool.util.UserControl;
 
+import by.epam.store.model.service.OrderService;
+
 /**
  * The command is responsible for processing subscription
  * 
@@ -54,3 +56,4 @@ public class ProcessSubscriptionCommand implements Command {
 		return router;
 	}
 }
+

@@ -1,6 +1,11 @@
 package com.arekhava.languageschool.entity.builder.impl;
 
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.*;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.COURSE_ID;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.COURSE_NAME;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.IMAGE_NAME;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.LANGUAGE_ID;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.NEXT_START;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.PRICE;
 
 import java.math.BigDecimal;
 import java.sql.Date;
