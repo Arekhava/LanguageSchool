@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="14" passed="14" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-10-17T20:09:23 MSK" name="Default suite" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4049">
+    <groups>
+    </groups>
+    <test started-at="2021-10-17T20:09:23 MSK" name="Default test" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4049">
+      <class name="com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:23 MSK" name="setUp" finished-at="2021-10-17T20:09:23 MSK" duration-ms="23" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:23 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="3656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="addCourseInvalidDataExceptionTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="addCourseInvalidDataExceptionTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="39" status="PASS">
+          <exception class="com.arekhava.languageschool.model.service.InvalidDataException">
+            <message>
+              <![CDATA[invalid data]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.arekhava.languageschool.model.service.InvalidDataException: invalid data
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImpl.addCourse(CatalogServiceImpl.java:50)
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest.addCourseInvalidDataExceptionTest(CatalogServiceImplTest.java:82)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.arekhava.languageschool.model.service.InvalidDataException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addCourseInvalidDataExceptionTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="changeCourseDataInvalidDataExceptionTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="changeCourseDataInvalidDataExceptionTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <exception class="com.arekhava.languageschool.model.service.InvalidDataException">
+            <message>
+              <![CDATA[invalid data]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.arekhava.languageschool.model.service.InvalidDataException: invalid data
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImpl.changeCourseData(CatalogServiceImpl.java:71)
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest.changeCourseDataInvalidDataExceptionTest(CatalogServiceImplTest.java:88)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.arekhava.languageschool.model.service.InvalidDataException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changeCourseDataInvalidDataExceptionTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeAllLanguagesNegativeTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeAllLanguagesNegativeTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="50" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeAllLanguagesNegativeTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeAllLanguagesPositiveTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeAllLanguagesPositiveTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeAllLanguagesPositiveTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeAllLanguagesServiceExceptionTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeAllLanguagesServiceExceptionTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="7" status="PASS">
+          <exception class="com.arekhava.languageschool.model.service.ServiceException">
+            <message>
+              <![CDATA[languages search error]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.arekhava.languageschool.model.service.ServiceException: languages search error
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImpl.takeAllLanguages(CatalogServiceImpl.java:89)
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest.takeAllLanguagesServiceExceptionTest(CatalogServiceImplTest.java:111)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.arekhava.languageschool.model.dao.DaoException
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.arekhava.languageschool.model.service.ServiceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeAllLanguagesServiceExceptionTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCourseByIdNegativeTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCourseByIdNegativeTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCourseByIdNegativeTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCourseByIdPositiveTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCourseByIdPositiveTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCourseByIdPositiveTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCourseByIdServiceExceptionTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCourseByIdServiceExceptionTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <exception class="com.arekhava.languageschool.model.service.ServiceException">
+            <message>
+              <![CDATA[course search error]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.arekhava.languageschool.model.service.ServiceException: course search error
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImpl.takeCourseById(CatalogServiceImpl.java:104)
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest.takeCourseByIdServiceExceptionTest(CatalogServiceImplTest.java:132)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.arekhava.languageschool.model.dao.DaoException
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.arekhava.languageschool.model.service.ServiceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCourseByIdServiceExceptionTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCoursesFromCategoryNegativeTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCoursesFromCategoryNegativeTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCoursesFromCategoryNegativeTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCoursesFromCategoryServiceExceptionTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCoursesFromCategoryServiceExceptionTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <exception class="com.arekhava.languageschool.model.service.ServiceException">
+            <message>
+              <![CDATA[courses By language search error]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.arekhava.languageschool.model.service.ServiceException: courses By language search error
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImpl.takeCoursesByLanguage(CatalogServiceImpl.java:121)
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest.takeCoursesFromCategoryServiceExceptionTest(CatalogServiceImplTest.java:154)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.arekhava.languageschool.model.dao.DaoException
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.arekhava.languageschool.model.service.ServiceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCoursesFromCategoryServiceExceptionTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCoursesLanguagePositiveTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCoursesLanguagePositiveTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCoursesLanguagePositiveTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCoursesWithNameNegativeTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCoursesWithNameNegativeTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCoursesWithNameNegativeTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCoursesWithNamePositiveTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCoursesWithNamePositiveTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCoursesWithNamePositiveTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+        <test-method is-config="true" signature="init()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="init" finished-at="2021-10-17T20:09:27 MSK" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="takeCoursesWithNameServiceExceptionTest()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="takeCoursesWithNameServiceExceptionTest" finished-at="2021-10-17T20:09:27 MSK" duration-ms="4" status="PASS">
+          <exception class="com.arekhava.languageschool.model.service.ServiceException">
+            <message>
+              <![CDATA[courses search error]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.arekhava.languageschool.model.service.ServiceException: courses search error
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImpl.takeCoursesWithName(CatalogServiceImpl.java:140)
+at com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest.takeCoursesWithNameServiceExceptionTest(CatalogServiceImplTest.java:176)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.arekhava.languageschool.model.dao.DaoException
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.arekhava.languageschool.model.service.ServiceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeCoursesWithNameServiceExceptionTest -->
+        <test-method is-config="true" signature="tierDown()[pri:0, instance:com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest@70e8f8e]" started-at="2021-10-17T20:09:27 MSK" name="tierDown" finished-at="2021-10-17T20:09:27 MSK" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tierDown -->
+      </class> <!-- com.arekhava.languageschool.model.service.impl.CatalogServiceImplTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

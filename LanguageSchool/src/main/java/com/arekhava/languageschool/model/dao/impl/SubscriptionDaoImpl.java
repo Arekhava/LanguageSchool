@@ -18,7 +18,6 @@ import com.arekhava.languageschool.model.dao.SubscriptionDao;
 import com.arekhava.languageschool.model.pool.ConnectionPool;
 import com.arekhava.languageschool.model.pool.ConnectionPoolException;
 
-import by.epam.store.entity.OrderStatus;
 
  
 

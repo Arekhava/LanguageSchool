@@ -30,8 +30,6 @@ import com.arekhava.languageschool.model.service.validator.SubscriptionInfoValid
 import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
 import com.arekhava.languageschool.util.PriceCalculator;
 
-import by.epam.store.entity.OrderStatus;
-import by.epam.store.model.service.validator.OrderInfoValidator;
 
 
 
