@@ -44,7 +44,6 @@ public class ParameterAndAttribute {
 	public static final String USER_ID = "userId";
 	public static final String USER_NAME = "userName";
 	public static final String IMAGE_NAME = "imageName";
-	//public static final Object SUBSCRIPTION_LIKED_ID = "subscriptionLikedId";
 	public static final String SUBSCRIPTIONS_ID = "subscriptionId";
 	public static final String COURSES_ID = "courseId";
 	public static final String COURSE_ID = "courseId";

@@ -44,7 +44,7 @@ public class AddCourseToLikedCommand implements Command {
 		Long userId = (Long) session.getAttribute(ParameterAndAttribute.USER_ID);
 		Long subscriptionLikedId = (Long) session.getAttribute(ParameterAndAttribute.SUBSCRIPTION_LIKED_ID);
 		String courseId = request.getParameter(ParameterAndAttribute.COURSE_ID);
-		//pass course id to database and store it
+		
 		try {
 			Optional<Subscription> subscriptionLikedOptional = subscriptionService.addCourseToLiked(userId, subscriptionLikedId, courseId);
 			if (subscriptionLikedOptional.isPresent()) {

@@ -111,7 +111,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		return true;
 	}
 
-	@Override//TODO
+	@Override
 	public boolean checkout(Map<String, String> subscriptionInfo) throws ServiceException, InvalidDataException {
 		if (MapUtils.isEmpty(subscriptionInfo)
 				|| !idValidator.isValidId(subscriptionInfo.get(ParameterAndAttribute.SUBSCRIPTION_LIKED_ID))) {
@@ -243,7 +243,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 				List<Course> courses = subscriptionCourseConnectionDao.findBySubscriptionId(subscription.getSubscriptionId());
 					subscription.setCourses(courses);
 					if (SubscriptionStatus.valueOf(subscriptionStatus.toUpperCase()) == SubscriptionStatus.LIKED) {
-						subscription.setCost(PriceCalculator.calculateTotalCost(courses));//fixme
+						subscription.setCost(PriceCalculator.calculateTotalCost(courses));
 					}
 				}
 			}

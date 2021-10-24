@@ -59,14 +59,9 @@ public class MailSender {
 			return false;
 		}
 		boolean result;
-		//Session mailSession = Session.getDefaultInstance(properties, authenticator);
+		
 		try {
-			/*MimeMessage message = new MimeMessage(mailSession);
-			message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-			message.setSubject(messageSubject);
-			message.setText(messageText);
-			Transport.send(message, properties.getProperty("mail.user.name"), properties.getProperty("mail.user.password"));
-			result = true;*/
+			
 			java.util.Properties props = new java.util.Properties();
 		    props.put("mail.smtp.host", "smtp.mail.ru");
 		    props.put("mail.smtp.port", "465");
