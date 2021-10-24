@@ -24,6 +24,8 @@ import com.arekhava.languageschool.model.service.ServiceException;
 import com.arekhava.languageschool.model.service.UserService;
 import com.arekhava.languageschool.model.service.validator.IdValidator;
 import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
+import com.arekhava.languageschool.model.service.validator.impl.IdValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.UserInfoValidatorImpl;
 import com.arekhava.languageschool.util.MailSender;
 import com.arekhava.languageschool.util.MessageKey;
 import com.arekhava.languageschool.util.PasswordEncryption;
@@ -41,6 +43,8 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		private static final String PATH_APP = "path.app";
 		private static final int NUMBER_PASSWORD_CHARACTERS = 8;
 		private UserDao userDao = new UserDaoImpl();
+		private UserInfoValidator userInfoValidator = new UserInfoValidatorImpl();
+		private IdValidator idValidator = new IdValidatorImpl();
 		
 		
 		@Override
@@ -49,9 +53,9 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 				throw new InvalidDataException("invalid data",
 						Arrays.asList(MessageKey.ERROR_IMPOSSIBLE_OPERATION_MESSAGE));
 			}
-			List<String> errorMessageList = UserInfoValidator.findInvalidData(userInfo);
+			List<String> errorMessageList = userInfoValidator.findInvalidData(userInfo);
 			String login = userInfo.get(ParameterAndAttribute.LOGIN);
-			if (UserInfoValidator.isValidLogin(login) && !checkIfLoginFree(login)) {
+			if (userInfoValidator.isValidLogin(login) && !checkIfLoginFree(login)) {
 				errorMessageList.add(MessageKey.ERROR_LOGIN_IS_BUSY_MESSAGE);
 			}
 			if (!errorMessageList.isEmpty()) {
@@ -76,7 +80,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		
 		@Override
 		public boolean activation(String userId) throws ServiceException {
-			if (!IdValidator.isValidId(userId)) {
+			if (!idValidator.isValidId(userId)) {
 				return false;
 			}
 			boolean userActivated;
@@ -91,8 +95,8 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		@Override
 		public Optional<User> authorization(String login, String password) throws ServiceException {
 			
-			  if (!UserInfoValidator.isValidLogin(login) ||
-			  !UserInfoValidator.isValidPassword(password)) { return Optional.empty(); }
+			  if (!userInfoValidator.isValidLogin(login) ||
+			  !userInfoValidator.isValidPassword(password)) { return Optional.empty(); }
 			  Optional<User> userOptional; try { userOptional =
 			  userDao.findUserByLogin(login); if (userOptional.isPresent()) { User user =
 			  userOptional.get(); String encryptedPassword =
@@ -107,7 +111,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		}
 		@Override
 		public boolean changeForgottenPassword(String login) throws ServiceException {
-			if (!UserInfoValidator.isValidLogin(login)) {
+			if (!userInfoValidator.isValidLogin(login)) {
 				return false;
 			}
 			boolean passwordChanged;
@@ -131,14 +135,14 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		@Override
 		public boolean changePassword(String login, String currentPassword, String newPassword)
 				throws ServiceException, InvalidDataException {
-			if (!UserInfoValidator.isValidLogin(login)) {
+			if (!userInfoValidator.isValidLogin(login)) {
 				throw new InvalidDataException("incorrect login",
 						Arrays.asList(MessageKey.ERROR_IMPOSSIBLE_OPERATION_MESSAGE));
 			}
-			if (!UserInfoValidator.isValidPassword(newPassword)) {
+			if (!userInfoValidator.isValidPassword(newPassword)) {
 				throw new InvalidDataException("incorrect password", Arrays.asList(MessageKey.ERROR_PASSWORD_MESSAGE));
 			}
-			if (!UserInfoValidator.isValidPassword(currentPassword)) {
+			if (!userInfoValidator.isValidPassword(currentPassword)) {
 				return false;
 			}
 			boolean passwordChanged;
@@ -159,13 +163,13 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 			}
 			String userId = userInfo.get(ParameterAndAttribute.USER_ID);
 			String currentLogin = userInfo.get(ParameterAndAttribute.CURRENT_LOGIN);
-			if (!IdValidator.isValidId(userId) || !UserInfoValidator.isValidLogin(currentLogin)) {
+			if (!idValidator.isValidId(userId) || !userInfoValidator.isValidLogin(currentLogin)) {
 				throw new InvalidDataException("impossible operation",
 						Arrays.asList(MessageKey.ERROR_IMPOSSIBLE_OPERATION_MESSAGE));
 			}
-			List<String> errorMessageList = UserInfoValidator.findInvalidData(userInfo);
+			List<String> errorMessageList = userInfoValidator.findInvalidData(userInfo);
 			String login = userInfo.get(ParameterAndAttribute.LOGIN);
-			if (UserInfoValidator.isValidLogin(login) && !StringUtils.equals(login, currentLogin)
+			if (userInfoValidator.isValidLogin(login) && !StringUtils.equals(login, currentLogin)
 					&& !checkIfLoginFree(login)) {
 				errorMessageList.add(MessageKey.ERROR_LOGIN_IS_BUSY_MESSAGE);
 			}
@@ -186,7 +190,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		}
 		@Override
 		public boolean blockUser(String userId) throws ServiceException {
-			if (!IdValidator.isValidId(userId)) {
+			if (!idValidator.isValidId(userId)) {
 				return false;
 			}
 			boolean userBlocked;
@@ -199,7 +203,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		}
 		@Override
 		public boolean unblockUser(String userId) throws ServiceException {
-			if (!IdValidator.isValidId(userId)) {
+			if (!idValidator.isValidId(userId)) {
 				return false;
 			}
 			boolean userUnblocked;
@@ -212,7 +216,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		}
 		@Override
 		public boolean sendMessage(String email, String message) throws ServiceException {
-			if ((UserInfoValidator.isValidLogin(email) && checkIfLoginFree(email))) {
+			if ((userInfoValidator.isValidLogin(email) && checkIfLoginFree(email))) {
 				return false;
 			}
 			return MailSender.send(email, MessageKey.INFO_MESSAGE_SUBJECT, message);
@@ -230,7 +234,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 
 		@Override
 		public Optional<User> takeUserById(String userId) throws ServiceException {
-			if (!IdValidator.isValidId(userId)) {
+			if (!idValidator.isValidId(userId)) {
 				return Optional.empty();
 			}
 			Optional<User> userOptional;
@@ -243,7 +247,7 @@ import com.arekhava.languageschool.util.PasswordEncryption;
 		}
 		@Override
 		public Optional<User> takeUserByLogin(String login) throws ServiceException {
-			if (!UserInfoValidator.isValidLogin(login)) {
+			if (!userInfoValidator.isValidLogin(login)) {
 				return Optional.empty();
 			}
 			Optional<User> userOptional;

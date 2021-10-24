@@ -5,10 +5,18 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.arekhava.languageschool.model.service.validator.IdValidator;
+import com.arekhava.languageschool.model.service.validator.SubscriptionInfoValidator;
+import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
+import com.arekhava.languageschool.model.service.validator.impl.IdValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.SubscriptionInfoValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.UserInfoValidatorImpl;
 
 
 
 public class IdValidatorTest {
+	
+	private IdValidator idValidator = new IdValidatorImpl();
+	
 
 	@DataProvider(name = "validId")
 	public static Object[][] validId() {
@@ -17,7 +25,7 @@ public class IdValidatorTest {
 
 	@Test(dataProvider = "validId")
 	public void isValidIdPositiveTest(String id) {
-		Assert.assertTrue(IdValidator.isValidId(id));
+		Assert.assertTrue(idValidator.isValidId(id));
 	}
 
 	@DataProvider(name = "invalidId")
@@ -27,6 +35,6 @@ public class IdValidatorTest {
 
 	@Test(dataProvider = "invalidId")
 	public void isValidIdNegativeTest(String id) {
-		Assert.assertFalse(IdValidator.isValidId(id));
+		Assert.assertFalse(idValidator.isValidId(id));
 	}
 }

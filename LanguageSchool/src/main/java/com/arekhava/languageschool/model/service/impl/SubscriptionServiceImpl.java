@@ -28,6 +28,9 @@ import com.arekhava.languageschool.model.service.SubscriptionService;
 import com.arekhava.languageschool.model.service.validator.IdValidator;
 import com.arekhava.languageschool.model.service.validator.SubscriptionInfoValidator;
 import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
+import com.arekhava.languageschool.model.service.validator.impl.IdValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.SubscriptionInfoValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.UserInfoValidatorImpl;
 import com.arekhava.languageschool.util.PriceCalculator;
 
 
@@ -42,16 +45,17 @@ import com.arekhava.languageschool.util.PriceCalculator;
  * @see SubscriptionService
  */
 public class SubscriptionServiceImpl implements SubscriptionService {
-	//private static final int ONE_COURSE = 1;
 	private SubscriptionDao subscriptionDao = new SubscriptionDaoImpl();
 	private SubscriptionCourseConnectionDao subscriptionCourseConnectionDao = new SubscriptionCourseConnectionDaoImpl();
 	private CourseDao courseDao = new CourseDaoImpl();
-	
+	private IdValidator idValidator = new IdValidatorImpl();
+	private SubscriptionInfoValidator subscriptionInfoValidator = new SubscriptionInfoValidatorImpl();
+	private UserInfoValidator userInfoValidator = new UserInfoValidatorImpl();
 
 	@Override
 	public Optional<Subscription> addCourseToLiked(Long userId, Long courseLikedId, String courseId)
 			throws ServiceException {
-		if (userId == null || !IdValidator.isValidId(courseId)) {
+		if (userId == null || !idValidator.isValidId(courseId)) {
 			return Optional.empty();
 		}
 		Subscription subscriptionLiked;
@@ -79,17 +83,13 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	 * @return {@link Long}
 	 * @throws DaoException
 	 */
-	//pass information about course - at least course id
+
 	private Long takeCourseToLikedId(Long userId) throws DaoException {
 		Long courseLikedId;
-		// these are not courses id, these are subscriptions ids
-		//there is need to pass also course id and check for courseId = ?
-		//join with other table
 		Optional<Long> courseLikedIdOptional = subscriptionDao.findSubscriptionAddedId(userId);
 		if (courseLikedIdOptional.isPresent()) {
 			courseLikedId = courseLikedIdOptional.get();
 		} else {
-			// create record also in subscriptions to courses table
 			Subscription subscription = new Subscription(userId);
 			subscriptionDao.create(subscription);
 			courseLikedId = subscription.getSubscriptionId();
@@ -99,7 +99,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 	@Override
 	public boolean removeCourseFromSubscription(Long subscriptionId, String courseId) throws ServiceException {
-		if (subscriptionId == null || !IdValidator.isValidId(courseId)) {
+		if (subscriptionId == null || !idValidator.isValidId(courseId)) {
 			return false;
 		}
 		SubscriptionCourseConnection subscriptionCourseConnection = new SubscriptionCourseConnection(subscriptionId, Long.valueOf(courseId));
@@ -114,10 +114,10 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	@Override//TODO
 	public boolean checkout(Map<String, String> subscriptionInfo) throws ServiceException, InvalidDataException {
 		if (MapUtils.isEmpty(subscriptionInfo)
-				|| !IdValidator.isValidId(subscriptionInfo.get(ParameterAndAttribute.SUBSCRIPTION_LIKED_ID))) {
+				|| !idValidator.isValidId(subscriptionInfo.get(ParameterAndAttribute.SUBSCRIPTION_LIKED_ID))) {
 			return false;
 		}
-		List<String> errorMessageList = SubscriptionInfoValidator.findInvalidData(subscriptionInfo);
+		List<String> errorMessageList = subscriptionInfoValidator.findInvalidData(subscriptionInfo);
 		if (!errorMessageList.isEmpty()) {
 			throw new InvalidDataException("invalid data", errorMessageList);
 		}
@@ -139,7 +139,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 	@Override
 	public boolean processSubscription(String subscriptionId, String subscriptionStatus) throws ServiceException {
-		if (!IdValidator.isValidId(subscriptionId) || !SubscriptionInfoValidator.isValidSubscriptionStatus(subscriptionStatus)) {
+		if (!idValidator.isValidId(subscriptionId) || !subscriptionInfoValidator.isValidSubscriptionStatus(subscriptionStatus)) {
 			return false;
 		}
 		SubscriptionStatus subscriptionFrom = SubscriptionStatus.valueOf(subscriptionStatus.toUpperCase());
@@ -189,7 +189,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 	@Override
 	public Optional<Subscription> takeSubscriptionById(String subscriptionId) throws ServiceException {
-		if (!IdValidator.isValidId(subscriptionId)) {
+		if (!idValidator.isValidId(subscriptionId)) {
 			return Optional.empty();
 		}
 		Optional<Subscription> subscriptionOptional;
@@ -211,7 +211,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 	@Override
 	public List<Subscription> takeSubscriptionsByLogin(String login) throws ServiceException {
-		if (!UserInfoValidator.isValidLogin(login)) {
+		if (!userInfoValidator.isValidLogin(login)) {
 			return Collections.emptyList();
 		}
 		List<Subscription> subscriptions;
@@ -231,7 +231,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	}
 	@Override
 	public List<Subscription> takeSubscriptionsByStatus(String subscriptionStatus) throws ServiceException {
-		if (!SubscriptionInfoValidator.isValidSubscriptionStatus(subscriptionStatus)) {
+		if (!subscriptionInfoValidator.isValidSubscriptionStatus(subscriptionStatus)) {
 			return Collections.emptyList();
 		}
 		List<Subscription> subscriptions;
@@ -259,11 +259,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		try {
 			subscriptions = subscriptionDao.findAll();
 			if (!subscriptions.isEmpty()) {
-				/*Collections.reverse(subscriptions);
+				Collections.reverse(subscriptions);
 				for (Subscription subscription : subscriptions) {
 					List<Course> courses = subscriptionCourseConnectionDao.findBySubscriptionId(subscription.getSubscriptionId());
 					subscription.setCourses(courses);
-				}*/
+				}
 			}
 		} catch (DaoException e) {
 			throw new ServiceException("subscriptions search error", e);
@@ -273,7 +273,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 	@Override
 	public boolean cancelSubscription(String subscriptionId, String subscriptionStatus, UserRole role) throws ServiceException {
-	if (!IdValidator.isValidId(subscriptionId) || !SubscriptionInfoValidator.isValidSubscriptionStatus(subscriptionStatus)
+	if (!idValidator.isValidId(subscriptionId) || !subscriptionInfoValidator.isValidSubscriptionStatus(subscriptionStatus)
 			|| role == null) {
 		return false;
 	}

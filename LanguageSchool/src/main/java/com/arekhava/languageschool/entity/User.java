@@ -1,14 +1,11 @@
 package com.arekhava.languageschool.entity;
 
-import java.io.Serializable;
-
 /**
  * Describes the entity User
  * 
  * * @author N
  */
-public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class User {
 	private Long userId;
 	private String login;
 	private String password;

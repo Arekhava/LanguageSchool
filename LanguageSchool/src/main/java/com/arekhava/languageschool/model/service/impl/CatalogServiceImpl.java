@@ -24,6 +24,8 @@ import com.arekhava.languageschool.model.service.InvalidDataException;
 import com.arekhava.languageschool.model.service.ServiceException;
 import com.arekhava.languageschool.model.service.validator.CourseInfoValidator;
 import com.arekhava.languageschool.model.service.validator.IdValidator;
+import com.arekhava.languageschool.model.service.validator.impl.CourseInfoValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.IdValidatorImpl;
 import com.arekhava.languageschool.util.MessageKey;
 
 
@@ -38,11 +40,14 @@ public class CatalogServiceImpl implements CatalogService {
 	private static final Logger logger = LogManager.getLogger();
 	private LanguageDao languageDao = new LanguageDaoImpl();
 	private CourseDao  courseDao = new CourseDaoImpl();
+	private CourseInfoValidator courseInfoValidator= new CourseInfoValidatorImpl();
+	private IdValidator idValidator = new IdValidatorImpl();
+	
 
 	@Override
 	public void addCourse(Map<String, String> courseInfo) throws ServiceException, InvalidDataException {
-		List<String> errorMessageList = CourseInfoValidator.findInvalidData(courseInfo);
-		if (courseInfo != null && !IdValidator.isValidId(courseInfo.get(ParameterAndAttribute.LANGUAGE_ID))) {
+		List<String> errorMessageList = courseInfoValidator.findInvalidData(courseInfo);
+		if (courseInfo != null && !idValidator.isValidId(courseInfo.get(ParameterAndAttribute.LANGUAGE_ID))) {
 			errorMessageList.add(MessageKey.ERROR_INCORRECT_COURSE_LANGUGE_MESSAGE);
 		}
 		
@@ -59,12 +64,12 @@ public class CatalogServiceImpl implements CatalogService {
 
 	@Override
 	public boolean changeCourseData(Map<String, String> courseInfo)  throws ServiceException, InvalidDataException {
-		List<String> errorMessageList = CourseInfoValidator.findInvalidData(courseInfo);
-		if (courseInfo != null && !IdValidator.isValidId(courseInfo.get(ParameterAndAttribute.COURSE_ID))) {
+		List<String> errorMessageList = courseInfoValidator.findInvalidData(courseInfo);
+		if (courseInfo != null && !idValidator.isValidId(courseInfo.get(ParameterAndAttribute.COURSE_ID))) {
 			errorMessageList.add(MessageKey.ERROR_INCORRECT_COURSE_ID_MESSAGE);
 		}
 		if (courseInfo != null
-				&& !CourseInfoValidator.isValidImageName(courseInfo.get(ParameterAndAttribute.IMAGE_NAME))) {
+				&& !courseInfoValidator.isValidImageName(courseInfo.get(ParameterAndAttribute.IMAGE_NAME))) {
 			errorMessageList.add(MessageKey.ERROR_INCORRECT_IMAGE_NAME_MESSAGE);
 		}
 		if (!errorMessageList.isEmpty()) {
@@ -94,7 +99,7 @@ public class CatalogServiceImpl implements CatalogService {
 
 	@Override
 	public Optional<Course> takeCourseById(String CourseId) throws ServiceException {
-		if (!IdValidator.isValidId(CourseId)) {
+		if (!idValidator.isValidId(CourseId)) {
 			return Optional.empty();
 		}
 		Optional<Course> courseOptional;
@@ -108,7 +113,7 @@ public class CatalogServiceImpl implements CatalogService {
 
 	@Override
 	public List<Course> takeCoursesByLanguage(String languageId, String sortingMethod) throws ServiceException {
-		if (!IdValidator.isValidId(languageId)) {
+		if (!idValidator.isValidId(languageId)) {
 			return Collections.emptyList();
 		}
 		List<Course> courses = new ArrayList<>();
@@ -127,7 +132,7 @@ public class CatalogServiceImpl implements CatalogService {
 
 	@Override
 	public List<Course> takeCoursesWithName(String courseName, String sortingMethod) throws ServiceException {
-		if (!CourseInfoValidator.isValidName(courseName)) {
+		if (!courseInfoValidator.isValidName(courseName)) {
 			return Collections.emptyList();
 		}
 		List<Course> courses = new ArrayList<>();

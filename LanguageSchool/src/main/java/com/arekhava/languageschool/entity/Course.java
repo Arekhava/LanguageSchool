@@ -1,8 +1,8 @@
 package com.arekhava.languageschool.entity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -10,8 +10,7 @@ import java.sql.Date;
  * 
  * @author N
  */
-public class Course implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Course  {
 	private Long courseId;
 	private Long languageId;
 	private String courseName;

@@ -111,7 +111,7 @@
 					<input type="hidden" name="command" value="process_subscription"/>
 					<input type="hidden" name="subscriptionId" value="${subscription.subscriptionId}"/>
 					<input type="hidden" name="status" value="${subscription.subscriptionStatus}"/>
-					<c:if test="${subscription.subscriptionStatus == 'ADDED_COURSE' || subscription.subscriptionStatus == 'ACCEPTED_TO_COURSE' || subscription.subscriptionStatus == 'ACTIVE_COURSE'}">
+					<c:if test="${subscription.subscriptionStatus == 'ADDED_COURSE' || subscription.subscriptionStatus == 'ACCEPTED_TO_COURSE' || subscription.subscriptionStatus == 'ACTIVE_COURSE' }">
 					<input type="submit" value="${process}"/>
 					</c:if>
 					<c:if test="${subscription.subscriptionStatus != 'ADDED_COURSE' && subscription.subscriptionStatus != 'ACCEPTED_TO_COURSE' && subscription.subscriptionStatus != 'ACTIVE_COURSE'}">

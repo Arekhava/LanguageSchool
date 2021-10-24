@@ -4,11 +4,19 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.arekhava.languageschool.model.service.validator.IdValidator;
+import com.arekhava.languageschool.model.service.validator.SubscriptionInfoValidator;
 import com.arekhava.languageschool.model.service.validator.UserInfoValidator;
+import com.arekhava.languageschool.model.service.validator.impl.IdValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.SubscriptionInfoValidatorImpl;
+import com.arekhava.languageschool.model.service.validator.impl.UserInfoValidatorImpl;
 
 
 
 public class UserInfoValidatorTest {
+	
+	
+	private UserInfoValidator userInfoValidator = new UserInfoValidatorImpl();
 
 	@DataProvider(name = "validLogin")
 	public static Object[][] validLogin() {
@@ -17,7 +25,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "validLogin")
 	public void isValidLoginPositiveTest(String login) {
-		Assert.assertTrue(UserInfoValidator.isValidLogin(login));
+		Assert.assertTrue(userInfoValidator.isValidLogin(login));
 	}
 
 	@DataProvider(name = "invalidLogin")
@@ -27,7 +35,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "invalidLogin")
 	public void isValidLoginNegativeTest(String login) {
-		Assert.assertFalse(UserInfoValidator.isValidLogin(login));
+		Assert.assertFalse(userInfoValidator.isValidLogin(login));
 	}
 
 	@DataProvider(name = "validPassword")
@@ -37,7 +45,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "validPassword")
 	public void isValidPasswordPositiveTest(String password) {
-		Assert.assertTrue(UserInfoValidator.isValidPassword(password));
+		Assert.assertTrue(userInfoValidator.isValidPassword(password));
 	}
 
 	@DataProvider(name = "invalidPassword")
@@ -47,7 +55,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "invalidPassword")
 	public void isValidPasswordNegativeTest(String password) {
-		Assert.assertFalse(UserInfoValidator.isValidPassword(password));
+		Assert.assertFalse(userInfoValidator.isValidPassword(password));
 	}
 
 	@DataProvider(name = "validName")
@@ -57,7 +65,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "validName")
 	public void isValidNamePositiveTest(String name) {
-		Assert.assertTrue(UserInfoValidator.isValidName(name));
+		Assert.assertTrue(userInfoValidator.isValidName(name));
 	}
 
 	@DataProvider(name = "invalidName")
@@ -67,7 +75,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "invalidName")
 	public void isValidNameNegativeTest(String name) {
-		Assert.assertFalse(UserInfoValidator.isValidName(name));
+		Assert.assertFalse(userInfoValidator.isValidName(name));
 	}
 
 	@DataProvider(name = "validPhone")
@@ -77,7 +85,7 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "validPhone")
 	public void isValidPhonePositiveTest(String phone) {
-		Assert.assertTrue(UserInfoValidator.isValidPhone(phone));
+		Assert.assertTrue(userInfoValidator.isValidPhone(phone));
 	}
 
 	@DataProvider(name = "invalidPhone")
@@ -87,6 +95,6 @@ public class UserInfoValidatorTest {
 
 	@Test(dataProvider = "invalidPhone")
 	public void isValidPhoneNegativeTest(String phone) {
-		Assert.assertFalse(UserInfoValidator.isValidPhone(phone));
+		Assert.assertFalse(userInfoValidator.isValidPhone(phone));
 	}
 }

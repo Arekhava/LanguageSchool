@@ -1,8 +1,6 @@
 package com.arekhava.languageschool.entity.builder.impl;
 
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.COST;
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.PAYMENT_METHOD;
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.SUBSCRIPTION_LIKED_ID;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

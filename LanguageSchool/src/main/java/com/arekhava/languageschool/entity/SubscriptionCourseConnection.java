@@ -1,13 +1,11 @@
 package com.arekhava.languageschool.entity;
 
-import java.io.Serializable;
 
 /**
  * Describes the entity SubscriptionCourseConnection
  * 
  */
-public class SubscriptionCourseConnection implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class SubscriptionCourseConnection {
 	private Long subscriptionId;
 	private Long courseId;
 
@@ -81,7 +79,7 @@ public class SubscriptionCourseConnection implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("subscriptionCoursesubscriptionConnection [subscriptionId=");
+		builder.append("subscriptionCourseConnection [subscriptionId=");
 		builder.append(subscriptionId);
 		builder.append(", courseId=");
 		builder.append(courseId);

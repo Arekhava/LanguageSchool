@@ -10,8 +10,7 @@ import java.util.List;
  * Describes the entity Subscription
  * 
  */
-public class Subscription implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Subscription  {
 	private Long subscriptionId;
 	private Long userId;
 	private SubscriptionStatus subscriptionStatus;

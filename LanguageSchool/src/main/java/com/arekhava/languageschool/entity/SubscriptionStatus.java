@@ -13,9 +13,3 @@ public enum SubscriptionStatus {
 	COMPLETED_COURSE, 
 	NOT_ACCEPTED_TO_COURSE,
 }
-//BASKET, 
-//PLACED, 
-//ACCEPTED, 
-//READY, 
-//DELIVERED, 
-//CANCELED

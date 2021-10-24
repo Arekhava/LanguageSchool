@@ -24,6 +24,7 @@ import static com.arekhava.languageschool.model.dao.ColumnName.USERS_STATUS;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import com.arekhava.languageschool.entity.Course;
 import com.arekhava.languageschool.entity.Language;
@@ -90,8 +91,7 @@ final class DaoEntityBuilder {
 		course.setCourseId(resultSet.getLong(COURSE_ID));
 		course.setCourseName(resultSet.getString(COURSE_NAME));
 		course.setImageName(resultSet.getString(COURSE_IMAGE_NAME));
-		//course.setLanguageId(resultSet.getLong(LANGUAGE_ID));
-		course.setNextStart(resultSet.getDate(NEXT_START));
+		course.setNextStart(resultSet.getDate( NEXT_START));
 		course.setPrice(resultSet.getBigDecimal(COURSE_PRICE));
 		return course;
 	}
@@ -106,8 +106,6 @@ final class DaoEntityBuilder {
 		Course course = new Course();
 		course.setCourseId(resultSet.getLong(COURSE_ID));
 		course.setCourseName(resultSet.getString(COURSE_NAME));
-		//course.setImageName(resultSet.getString(COURSE_IMAGE_NAME));
-		//course.setLanguageId(resultSet.getLong(LANGUAGE_ID));
 		course.setNextStart(resultSet.getDate(NEXT_START));
 		course.setPrice(resultSet.getBigDecimal(COURSE_PRICE));
 		return course;

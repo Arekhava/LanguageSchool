@@ -1,9 +1,6 @@
 package com.arekhava.languageschool.entity.builder.impl;
 
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.LOGIN;
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.PASSWORD;
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.PHONE;
-import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.USER_NAME;
+import static com.arekhava.languageschool.controller.command.ParameterAndAttribute.*;
 
 import java.util.Map;
 

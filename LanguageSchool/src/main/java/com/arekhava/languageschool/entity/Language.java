@@ -1,14 +1,12 @@
 package com.arekhava.languageschool.entity;
 
-import java.io.Serializable;
 
 /**
  * Describes the entity Language
  * 
  * @author N
  */
-public class Language implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Language  {
 	private Long languageId;
 	private String languageName;
 	private String imageName;
