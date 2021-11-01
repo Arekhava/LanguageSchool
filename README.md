@@ -7,6 +7,7 @@ User roles and functions available to them
 GUEST
 
 switch language;
+
 course search by name or category;
 viewing information about courses;
 sorting courses by price;
