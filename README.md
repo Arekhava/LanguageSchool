@@ -44,3 +44,5 @@ User roles and functions available to them
  13. student access control;
  14. sending messages to clients;
  15. logout.
+
+![lan](https://user-images.githubusercontent.com/74658924/139651031-de2c94ef-134f-48fd-a353-ce10fcbc8ef6.png)
