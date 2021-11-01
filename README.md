@@ -4,7 +4,7 @@ PROJECT OVERVIEW
 
 User roles and functions available to them
 
-GUEST
+   GUEST
 
  switch language;
  
@@ -19,8 +19,8 @@ GUEST
  authorization;
  
  password recovery;
-
-Registered user - STUDENT
+ 
+   Registered user - STUDENT
 
  switch language;
  
@@ -42,7 +42,7 @@ Registered user - STUDENT
  
  logout;
 
-ADMINISTRATOR
+   ADMINISTRATOR
 
  switch language;
  
