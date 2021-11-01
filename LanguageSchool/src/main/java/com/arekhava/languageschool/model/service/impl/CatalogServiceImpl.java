@@ -48,7 +48,7 @@ public class CatalogServiceImpl implements CatalogService {
 	public void addCourse(Map<String, String> courseInfo) throws ServiceException, InvalidDataException {
 		List<String> errorMessageList = courseInfoValidator.findInvalidData(courseInfo);
 		if (courseInfo != null && !idValidator.isValidId(courseInfo.get(ParameterAndAttribute.LANGUAGE_ID))) {
-			errorMessageList.add(MessageKey.ERROR_INCORRECT_COURSE_LANGUGE_MESSAGE);
+			errorMessageList.add(MessageKey.ERROR_INCORRECT_COURSE_LANGUAGE_MESSAGE);
 		}
 		
 		if (!errorMessageList.isEmpty()) {

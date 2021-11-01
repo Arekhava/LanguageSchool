@@ -33,6 +33,7 @@ import com.arekhava.languageschool.controller.command.Router;
 @WebServlet(name = "upload", urlPatterns = { "/upload" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FileUploadingServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LogManager.getLogger();
 	private static final String BUNDLE_NAME = "path";
 	private static final String PATH_IMG = "path.img";

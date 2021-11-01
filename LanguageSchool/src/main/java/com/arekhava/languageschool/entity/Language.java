@@ -6,7 +6,7 @@ package com.arekhava.languageschool.entity;
  * 
  * @author N
  */
-public class Language  {
+public class Language extends Entity   {
 	private Long languageId;
 	private String languageName;
 	private String imageName;

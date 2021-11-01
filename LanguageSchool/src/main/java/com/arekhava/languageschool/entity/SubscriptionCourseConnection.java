@@ -5,7 +5,7 @@ package com.arekhava.languageschool.entity;
  * Describes the entity SubscriptionCourseConnection
  * 
  */
-public class SubscriptionCourseConnection {
+public class SubscriptionCourseConnection extends Entity {
 	private Long subscriptionId;
 	private Long courseId;
 

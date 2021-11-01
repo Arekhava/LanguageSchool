@@ -1,4 +1,4 @@
-package com.arekhava.languageschool.util;
+ package com.arekhava.languageschool.util;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;

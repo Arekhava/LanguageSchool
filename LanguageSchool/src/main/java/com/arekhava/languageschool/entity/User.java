@@ -5,7 +5,7 @@ package com.arekhava.languageschool.entity;
  * 
  * * @author N
  */
-public class User {
+public class User extends Entity  {
 	private Long userId;
 	private String login;
 	private String password;

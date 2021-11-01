@@ -3,9 +3,7 @@ package com.arekhava.languageschool.model.service.validator;
 import java.util.List;
 import java.util.Map;
 
-import com.arekhava.languageschool.entity.PaymentMethod;
 import com.arekhava.languageschool.entity.Subscription;
-import com.arekhava.languageschool.entity.SubscriptionStatus;
 
 public interface SubscriptionInfoValidator {
 	

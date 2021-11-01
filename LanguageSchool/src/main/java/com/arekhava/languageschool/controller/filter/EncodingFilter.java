@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebInitParam;
 
 @WebFilter(urlPatterns = { "/*" }, initParams = {
 		@WebInitParam(name = "encoding", value = "UTF-8", description = "Encoding Param") })
+
 public class EncodingFilter implements Filter {
 	private static final String INIT_PARAMETER_ENCODING = "encoding";
 	private String encoding;
@@ -29,7 +30,15 @@ public class EncodingFilter implements Filter {
 		response.setCharacterEncoding(encoding);
 		chain.doFilter(request, response);
 	}
+/*
+ *  String codeRequest = servletRequest.getCharacterEncoding();
 
+	        if (!encoding.equalsIgnoreCase(codeRequest)) {
+	            servletRequest.setCharacterEncoding(encoding);
+	            servletResponse.setCharacterEncoding(encoding);
+	        }
+	        filterChain.doFilter(servletRequest, servletResponse);
+ */
 	@Override
 	public void destroy() {
 		encoding = null;

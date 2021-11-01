@@ -1,30 +1,10 @@
 package com.arekhava.languageschool.model.dao.impl;
 
-import static com.arekhava.languageschool.model.dao.ColumnName.COURSE_ID;
-import static com.arekhava.languageschool.model.dao.ColumnName.COURSE_IMAGE_NAME;
-import static com.arekhava.languageschool.model.dao.ColumnName.COURSE_NAME;
-import static com.arekhava.languageschool.model.dao.ColumnName.COURSE_PRICE;
-import static com.arekhava.languageschool.model.dao.ColumnName.LANGUAGES_ID;
-import static com.arekhava.languageschool.model.dao.ColumnName.LANGUAGES_IMAGE_NAME;
-import static com.arekhava.languageschool.model.dao.ColumnName.LANGUAGES_NAME;
-import static com.arekhava.languageschool.model.dao.ColumnName.NEXT_START;
-import static com.arekhava.languageschool.model.dao.ColumnName.SUBSCRIPTIONS_COST;
-import static com.arekhava.languageschool.model.dao.ColumnName.SUBSCRIPTIONS_DATE_TIME;
-import static com.arekhava.languageschool.model.dao.ColumnName.SUBSCRIPTIONS_ID;
-import static com.arekhava.languageschool.model.dao.ColumnName.SUBSCRIPTIONS_PAYMENT_METHOD;
-import static com.arekhava.languageschool.model.dao.ColumnName.SUBSCRIPTIONS_STATUS;
-import static com.arekhava.languageschool.model.dao.ColumnName.SUBSCRIPTIONS_USER_ID;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_ID;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_LOGIN;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_NAME;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_PASSWORD;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_PHONE;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_ROLE;
-import static com.arekhava.languageschool.model.dao.ColumnName.USERS_STATUS;
+import static com.arekhava.languageschool.model.dao.ColumnName.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
+
 
 import com.arekhava.languageschool.entity.Course;
 import com.arekhava.languageschool.entity.Language;

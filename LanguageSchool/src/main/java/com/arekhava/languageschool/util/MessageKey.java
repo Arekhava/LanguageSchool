@@ -3,12 +3,12 @@ package com.arekhava.languageschool.util;
 public class MessageKey {
 
 	public static final String ERROR_IMPOSSIBLE_OPERATION_MESSAGE = "error_impossible_operation_message";
-	public static final String ERROR_NAME_MESSAGE = "error_name_message";
-	public static final String ERROR_PHONE_MESSAGE = "error_phone_message";
-	public static final String ERROR_EMAIL_MESSAGE = "error_email_message";
-	public static final String ERROR_PASSWORD_MESSAGE = "error_password_message";
+	public static final String ERROR_NAME_MESSAGE = "local.error.name";
+	public static final String ERROR_PHONE_MESSAGE = "local.error.phone";
+	public static final String ERROR_EMAIL_MESSAGE = "local.error.email";
+	public static final String ERROR_PASSWORD_MESSAGE = "local.error.password";
 	public static final String ERROR_EMAIL_IS_BUSY_MESSAGE = "error_email_is_busy_message";
-	public static final String ERROR_INCORRECT_COURSE_NAME_MESSAGE = "error_course_name_message";
+	public static final String ERROR_INCORRECT_COURSE_NAME_MESSAGE = "local.error_course_name_message";
 	public static final String INFO_NO_SUBSCRIPTIONS_MESSAGE = "local.message.no_subscriptions";
 	public static final String INFO_COURSE_ADDED_TO_CATALOG_MESSAGE = "local.message.course_added_to_catalog";
 	public static final String INFO_COURSE_ADDED_TO_LIKED_MESSAGE = "local.message.course_added_to_liked";
@@ -29,14 +29,9 @@ public class MessageKey {
 	public static final String ERROR_INCORRECT_PRICE_MESSAGE = "local.error.incorrect_price";
 	public static final String ERROR_INCORRECT_IMAGE_NAME_MESSAGE = "local.error.incorrect_image_name";
 	public static final String ERROR_SAVE_MESSAGE = "local.error.save";
-	public static final String ERROR_INCORRECT_CITY_MESSAGE = "local.error.incorrect_city";
-	public static final String ERROR_INCORRECT_STREET_MESSAGE = "local.error.incorrect_street";
-	public static final String ERROR_INCORRECT_HOUSE_MESSAGE = "local.error.incorrect_house";
-	public static final String ERROR_INCORRECT_APARTMENT_MESSAGE = "local.error.incorrect_apartment";
 	public static final String ERROR_INCORRECT_COURSE_LANGUAGE_MESSAGE = "local.error.incorrect_course_langugage";
 	public static final String ERROR_INCORRECT_COURSE_ID_MESSAGE = "local.error.incorrect_course_id";
 	public static final String ERROR_INCORRECT_PAYMENT_METHOD_MESSAGE = "local.error.incorrect_payment_method";
-	public static final String ERROR_INCORRECT_DELVERY_METHOD_MESSAGE = "local.error.incorrect_delivery_method";
 	public static final String ERROR_CONFIRMATION_MESSAGE = "local.error.confirmation";
 	public static final String ERROR_INCORRECT_PASSWORD_MESSAGE = "local.error.incorrect_password";
 	public static final String INFO_REGISTRATION_OK_MESSAGE = "local.message.registration_ok";
@@ -44,7 +39,6 @@ public class MessageKey {
 	public static final String INFO_CONFIRMATION_OF_REGISTRATION_MESSAGE_NOT_SENT = "local.message.confirmation_of_registration_message_not_sent";
 	public static final String INFO_PASSWORD_SENT_MESSAGE = "local.message.password_sent";
 	public static final String INFO_NOTHING_FOUND_MESSAGE = "local.message.nothing_found";
-	public static final String INFO_BASKET_EMPTY_MESSAGE = "local.message.basket_empty";
 	public static final String INFO_SAVED_SUCCESSFULLY_MESSAGE = "local.message.saved_successfully";
 	public static final String INFO_USER_BLOCKED_MESSAGE = "local.message.user_blocked";
 	public static final String INFO_USER_UNBLOCKED_MESSAGE = "local.message.user_unblocked";
@@ -54,7 +48,7 @@ public class MessageKey {
 	public static final String CHANGE_PASSWORD_MESSAGE_SUBJECT = "Change password";
 	public static final String CHANGE_PASSWORD_MESSAGE_TEXT = "Your new login password is ";
 	public static final String INFO_MESSAGE_SUBJECT = "Info message";
-	public static final String ERROR_INCORRECT_COURSE_LANGUGE_MESSAGE = null;
+
 
 	
 	

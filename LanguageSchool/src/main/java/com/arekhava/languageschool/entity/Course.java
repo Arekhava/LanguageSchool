@@ -2,7 +2,7 @@ package com.arekhava.languageschool.entity;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.LocalDate;
+
 
 
 /**
@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * 
  * @author N
  */
-public class Course  {
+public class Course extends Entity  {
 	private Long courseId;
 	private Long languageId;
 	private String courseName;

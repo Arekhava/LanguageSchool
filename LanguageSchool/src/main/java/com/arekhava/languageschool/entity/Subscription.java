@@ -1,6 +1,5 @@
 package com.arekhava.languageschool.entity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -10,7 +9,7 @@ import java.util.List;
  * Describes the entity Subscription
  * 
  */
-public class Subscription  {
+public class Subscription extends Entity  {
 	private Long subscriptionId;
 	private Long userId;
 	private SubscriptionStatus subscriptionStatus;
@@ -59,7 +58,7 @@ public class Subscription  {
 		this.courses = courses;
 	}
 
-	public void Subscription(Long subscriptionId) {
+	public void subscription(Long subscriptionId) {
 		this.subscriptionId =subscriptionId;
 	}
 
