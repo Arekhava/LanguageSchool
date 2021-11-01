@@ -1,9 +1,0 @@
-
-/**
- * @author N
- *
- */
-module ExamJava {
-	
-
-}

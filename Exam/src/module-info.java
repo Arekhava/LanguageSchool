@@ -1,3 +1,0 @@
-module Exam {
-	exports ExamEpam;
-}
