@@ -52,6 +52,7 @@ public class SignUpCommand implements Command {
 			logger.error("user creation error", e);
 			router = new Router(PagePath.ERROR, RouteType.REDIRECT);
 		}
+		System.out.println(request.getParameter(ParameterAndAttribute.USER_NAME));
 		return router;
 	}
 }

@@ -55,6 +55,7 @@ public class AddCourseToCatalogCommand implements Command {
 					courseInfo.get(ParameterAndAttribute.PATH) +courseInfo.get(ParameterAndAttribute.IMAGE_NAME));
 			session.setAttribute(ParameterAndAttribute.ERROR_MESSAGE, e.getErrorDescription());
 			router = new Router(PagePath.ADDED_COURSE, RouteType.REDIRECT);
+			
 		} catch (ServiceException e) {
 			logger.error("error adding a course to the catalog", e);
 			FileUtil.deleteFile(
@@ -62,5 +63,6 @@ public class AddCourseToCatalogCommand implements Command {
 			router = new Router(PagePath.ERROR, RouteType.REDIRECT);
 		}
 			return router;
+			
 		}
 	}
