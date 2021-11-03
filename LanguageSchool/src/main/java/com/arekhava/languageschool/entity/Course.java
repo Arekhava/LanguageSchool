@@ -2,6 +2,7 @@ package com.arekhava.languageschool.entity;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Objects;
 
 
 
@@ -112,6 +113,7 @@ public class Course extends Entity  {
 		return result;
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -121,37 +123,12 @@ public class Course extends Entity  {
 		if (getClass() != obj.getClass())
 			return false;
 		Course other = (Course) obj;
-		if (languageId == null) {
-			if (other.languageId != null)
-				return false;
-		} else if (!languageId.equals(other.languageId))
-		if (price == null) {
-			if (other.price != null)
-				return false;
-		} else if (!price.equals(other.price))
-			return false;
-		if (courseId == null) {
-			if (other.languageId != null)
-				return false;
-		} else if (!courseId.equals(other.languageId))
-			return false;
-		if (courseName == null) {
-			if (other.courseName != null)
-				return false;
-		} else if (!courseName.equals(other.courseName))
-			return false;
-		if (imageName == null) {
-			if (other.imageName != null)
-				return false;
-		} else if (!imageName.equals(other.imageName))
-			return false;
-		if (nextStart == null) {
-			if (other.nextStart != null)
-				return false;
-		} else if (!nextStart.equals(other.nextStart))
-			return false;
-		return true;
+		return Objects.equals(courseId, other.courseId) && Objects.equals(courseName, other.courseName)
+				&& Objects.equals(imageName, other.imageName) && Objects.equals(languageId, other.languageId)
+				&& Objects.equals(nextStart, other.nextStart) && Objects.equals(price, other.price);
 	}
+
+
 
 	@Override
 	public String toString() {

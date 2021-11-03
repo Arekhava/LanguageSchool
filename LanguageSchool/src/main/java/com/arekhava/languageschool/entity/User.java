@@ -1,5 +1,7 @@
 package com.arekhava.languageschool.entity;
 
+import java.util.Objects;
+
 /**
  * Describes the entity User
  * 
@@ -76,6 +78,8 @@ public class User extends Entity  {
 		this.status = status;
 	}
 
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,36 +103,9 @@ public class User extends Entity  {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (phone == null) {
-			if (other.phone != null)
-				return false;
-		} else if (!phone.equals(other.phone))
-			return false;
-		if (role != other.role)
-			return false;
-		if (status != other.status)
-			return false;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
-			return false;
-		return true;
+		return Objects.equals(login, other.login) && Objects.equals(name, other.name)
+				&& Objects.equals(password, other.password) && Objects.equals(phone, other.phone) && role == other.role
+				&& status == other.status && Objects.equals(userId, other.userId);
 	}
 
 	@Override

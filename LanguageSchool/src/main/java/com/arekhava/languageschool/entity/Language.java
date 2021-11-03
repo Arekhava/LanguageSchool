@@ -1,5 +1,6 @@
 package com.arekhava.languageschool.entity;
 
+import java.util.Objects;
 
 /**
  * Describes the entity Language
@@ -55,6 +56,9 @@ public class Language extends Entity   {
 		this.imageName = imageName;
 	}
 
+	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -74,23 +78,9 @@ public class Language extends Entity   {
 		if (getClass() != obj.getClass())
 			return false;
 		Language other = (Language) obj;
-		if (languageId == null) {
-			if (other.languageId != null)
-				return false;
-		} else if (!languageId.equals(other.languageId))
-			return false;
-		if (languageName == null) {
-			if (other.languageName != null)
-				return false;
-		} else if (!languageName.equals(other.languageName))
-		if (imageName == null) {
-			if (other.imageName != null)
-				return false;
-		} else if (!imageName.equals(other.imageName))
-			return false;
-		return false;
-		}
-
+		return Objects.equals(imageName, other.imageName) && Objects.equals(languageId, other.languageId)
+				&& Objects.equals(languageName, other.languageName);
+	}
 
 	@Override
 	public String toString() {

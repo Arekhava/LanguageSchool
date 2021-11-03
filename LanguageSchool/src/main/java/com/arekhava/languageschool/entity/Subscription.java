@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Describes the entity Subscription
@@ -106,14 +107,12 @@ public class Subscription extends Entity  {
 	public void setPaymentMethod(PaymentMethod paymentMethod) {
 		this.paymentMethod = paymentMethod;
 	}
-
 	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-
 		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
 		result = prime * result + ((dateTime == null) ? 0 : dateTime.hashCode());
 		result = prime * result + ((subscriptionId == null) ? 0 : subscriptionId.hashCode());
@@ -133,36 +132,10 @@ public class Subscription extends Entity  {
 		if (getClass() != obj.getClass())
 			return false;
 		Subscription other = (Subscription) obj;
-		if (cost == null) {
-			if (other.cost != null)
-				return false;
-		} else if (!cost.equals(other.cost))
-			return false;
-		if (dateTime == null) {
-			if (other.dateTime != null)
-				return false;
-		} else if (!dateTime.equals(other.dateTime))
-			return false;
-		if (subscriptionId == null) {
-			if (other.subscriptionId != null)
-				return false;
-		} else if (!subscriptionId.equals(other.subscriptionId))
-			return false;
-		if (subscriptionStatus != other.subscriptionStatus)
-			return false;
-		if (paymentMethod != other.paymentMethod)
-			return false;
-		if (courses == null) {
-			if (other.courses != null)
-				return false;
-		} else if (!courses.equals(other.courses))
-			return false;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
-			return false;
-		return true;
+		return Objects.equals(cost, other.cost) && Objects.equals(courses, other.courses)
+				&& Objects.equals(dateTime, other.dateTime) && paymentMethod == other.paymentMethod
+				&& Objects.equals(subscriptionId, other.subscriptionId)
+				&& subscriptionStatus == other.subscriptionStatus && Objects.equals(userId, other.userId);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.arekhava.languageschool.entity;
 
+import java.util.Objects;
 
 /**
  * Describes the entity SubscriptionCourseConnection
@@ -45,6 +46,8 @@ public class SubscriptionCourseConnection extends Entity {
 		this.courseId = courseId;
 	}
 
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -63,17 +66,7 @@ public class SubscriptionCourseConnection extends Entity {
 		if (getClass() != obj.getClass())
 			return false;
 		SubscriptionCourseConnection other = (SubscriptionCourseConnection) obj;
-		if (subscriptionId == null) {
-			if (other.subscriptionId != null)
-				return false;
-		} else if (!subscriptionId.equals(other.subscriptionId))
-			return false;
-		if (courseId == null) {
-			if (other.courseId != null)
-				return false;
-		} else if (!courseId.equals(other.courseId))
-			return false;
-		return true;
+		return Objects.equals(courseId, other.courseId) && Objects.equals(subscriptionId, other.subscriptionId);
 	}
 
 	@Override
